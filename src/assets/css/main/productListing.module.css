@@ -1,0 +1,396 @@
+.productContainer {
+    display: flex;
+
+}
+
+.bookContent {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.cardListView {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column
+}
+
+.filterContent {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0px;
+}
+
+.filter {
+    display: flex;
+    position: relative;
+    align-items: center;
+}
+
+.filter span {
+    position: absolute;
+    font-size: 10px;
+    color: #72797E;
+    top: 0;
+}
+
+.filter select {
+    border: none;
+    margin-right: 16px;
+    background-color: #fff;
+}
+
+/* PRODUCT CARD CSS START  */
+.bookCard {
+    width: 240px;
+    height: 481px;
+    padding-top: 16px;
+    /* margin: 0px 16px; */
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    position: relative;
+}
+
+.bookCard .cardContent .price {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 24px;
+}
+
+.bookCardListView {
+    width: 100%;
+    height: 273px;
+    /* padding-top: 16px; */
+    display: flex;
+    flex-direction: row;
+    /* align-items: center; */
+    position: relative;
+}
+
+.whishlistSvg {
+    height: 15px;
+    width: 14px;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: #fff;
+    border-radius: 50%;
+    padding: 6px;
+}
+
+.cardImg {
+    position: relative;
+}
+
+.bookCard .cardImg img {
+    width: 208px;
+    height: 312px;
+}
+
+.bookCardListView .cardImg img {
+    width: 160px;
+    height: 240px;
+}
+
+.cardListView .bookCardListView .cardContent {
+    margin-left: 48px;
+}
+
+.cardListView .bookCardListView .cardContent .cartBtn {
+    display: block;
+    background-color: #333F48;
+    color: #fff;
+    font-size: 16px;
+    height: 48px;
+    width: 208px;
+    text-align: center;
+    border: 0px;
+    position: relative;
+    /* bottom: 0px;
+    right: 8px; */
+    margin: 6px;
+    cursor: pointer;
+}
+
+.cardListView .bookCardListView .cardContent .title {
+    font-size: 20px;
+    margin-bottom: 12px;
+}
+
+.cardListView .bookCardListView .cardContent .author {
+    font-size: 14px;
+    margin-bottom: 16px;
+}
+
+.cardListView .bookCardListView .cardContent .rating {
+    margin-bottom: 33px;
+}
+
+.cardListView .bookCardListView .cardContent .price {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 24px;
+}
+
+.bookCard p {
+    text-align: center;
+    font-size: 14px;
+    color: #333F48;
+    margin-top: 6px;
+    margin-bottom: 4px;
+}
+
+.bookCard .author {
+    color: #00838C;
+}
+
+.cartBtn {
+    display: none;
+    background-color: #333F48;
+    color: #fff;
+    font-size: 16px;
+    height: 48px;
+    width: 208px;
+    text-align: center;
+    border: 0px;
+    position: absolute;
+    bottom: 0px;
+    right: 8px;
+    margin: 6px;
+    cursor: pointer;
+}
+
+.cartBtn svg {
+    padding: 0px 8px;
+    width: 20px;
+    height: 19px;
+    font-size: 16px;
+}
+
+
+
+/* feedback star css start  */
+
+/* feedback star css end  */
+.bookCard:hover .cartBtn {
+    display: block;
+}
+
+.bookCard:hover {
+    box-shadow: 0px 5px 10px #00000029;
+}
+
+.view {
+    display: flex;
+}
+
+.view button {
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+}
+
+.view .button {
+    background: white;
+    border: 1px solid #eeeeee;
+}
+
+.isactive {
+    background: #EEEEEE;
+    border: #EEEEEE;
+}
+
+.view svg {
+    padding-right: 12px;
+}
+
+@media only screen and (max-width: 767px) {
+    .bookCard {
+        width: 155px;
+        height: 338px;
+        margin: 16px;
+    }
+
+    .cartBtn {
+        display: block;
+    }
+
+    .bookCard .cardImg img {
+        width: 155px;
+        height: 210px;
+    }
+
+    .bookContent button {
+        display: none;
+
+    }
+
+    .bookCard:hover .cartBtn {
+        display: none;
+    }
+
+    .filter span,
+    select {
+        display: none;
+    }
+
+    .view {
+        display: flex;
+    }
+
+    .view button {
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+        padding: 14px 16px;
+    }
+
+    .filterContent {
+        margin: 10px 16px;
+    }
+
+    .bookCardListView {
+        width: 343px;
+        height: 212px;
+        padding: 25px 16px;
+    }
+
+    .bookCardListView .cardImg img {
+        width: 140px;
+        height: 210px;
+    }
+
+    .cardListView .bookCardListView .cardContent {
+        margin-left: 28px;
+    }
+
+    .cardListView .bookCardListView .cardContent .cartBtn {
+        display: block;
+        background-color: #333F48;
+        color: #fff;
+        font-size: 16px;
+        height: 36pt;
+        width: 153px;
+        text-align: center;
+        border: 0px;
+        position: relative;
+        margin: 6px;
+        cursor: pointer;
+    }
+
+    .cardListView .bookCardListView .cardContent .title {
+        font-size: 14px;
+        margin-bottom: 12px;
+    }
+
+    .cardListView .bookCardListView .cardContent .author {
+        font-size: 12px;
+        margin-bottom: 16px;
+    }
+
+    .cardListView .bookCardListView .cardContent .rating {
+        margin-bottom: 33px;
+    }
+
+    .cardListView .bookCardListView .cardContent .price {
+        font-size: 14px;
+        font-weight: bold;
+        margin-bottom: 24px;
+    }
+}
+
+@media only screen and (max-width: 375px) {
+    .bookCard {
+        width: 155px;
+        height: 338px;
+        margin: 16px;
+    }
+
+    .cartBtn {
+        display: block;
+    }
+
+    .bookCard .cardImg img {
+        width: 155px;
+        height: 210px;
+    }
+
+    .bookContent button {
+        display: none;
+
+    }
+
+    .bookCard:hover .cartBtn {
+        display: none;
+    }
+
+    .filter span,
+    select {
+        display: none;
+    }
+
+    .view {
+        display: flex;
+    }
+
+    .view button {
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+        padding: 14px 16px;
+    }
+
+    .filterContent {
+        margin: 10px 16px;
+    }
+
+    .bookCardListView {
+        width: 343px;
+        height: 212px;
+        padding: 25px 16px;
+    }
+
+    .bookCardListView .cardImg img {
+        width: 140px;
+        height: 210px;
+    }
+
+    .cardListView .bookCardListView .cardContent {
+        margin-left: 28px;
+    }
+
+    .cardListView .bookCardListView .cardContent .cartBtn {
+        display: block;
+        background-color: #333F48;
+        color: #fff;
+        font-size: 16px;
+        height: 36pt;
+        width: 153px;
+        text-align: center;
+        border: 0px;
+        position: relative;
+        margin: 6px;
+        cursor: pointer;
+    }
+
+    .cardListView .bookCardListView .cardContent .title {
+        font-size: 14px;
+        margin-bottom: 12px;
+    }
+
+    .cardListView .bookCardListView .cardContent .author {
+        font-size: 12px;
+        margin-bottom: 16px;
+    }
+
+    .cardListView .bookCardListView .cardContent .rating {
+        margin-bottom: 33px;
+    }
+
+    .cardListView .bookCardListView .cardContent .price {
+        font-size: 14px;
+        font-weight: bold;
+        margin-bottom: 24px;
+    }
+}
