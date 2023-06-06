@@ -44,3 +44,6 @@ export const fetchMegamenu = () => {
 export const fetchCartData = () => {
     return axios.get(path.cart)
 }
+export const fetchWhishlistData = () => {
+    return axios.get(path.whishlist)
+}

@@ -15,6 +15,7 @@ const countryApi = {
     productsListing: `${URL}/productsListing`,
     megamenu: `${URL}/megamenu`,
     cart: `${URL}/cart`,
+    whishlist: `${URL}/whishlist`
 
 };
 

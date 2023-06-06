@@ -1,9 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getCategories, getMegaMenu, getProductsListing } from "../action/country";
+import { getCategories, getMegaMenu, getProductsListing, getWishlist } from "../action/country";
 const initialState = {
     categories: [],
     products: [],
     megamenu: [],
+    whishlist: [],
     error: null,
     loading: false,
 }
@@ -49,6 +50,18 @@ const productListingSlice = createSlice({
                 state.megamenu = action.payload;
             })
             .addCase(getMegaMenu.rejected, (state, action) => {
+                state.loading = false;
+                state.error = action.payload;
+            })
+            //get whishlist data from backend
+            .addCase(getWishlist.pending, (state, action) => {
+                state.loading = true;
+            })
+            .addCase(getWishlist.fulfilled, (state, action) => {
+                state.loading = false;
+                state.whishlist = action.payload;
+            })
+            .addCase(getWishlist.rejected, (state, action) => {
                 state.loading = false;
                 state.error = action.payload;
             })

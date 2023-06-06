@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
-import Danser from '../../assets/images/Danser.png'
 import style from '../../assets/css/header/cartBox.module.css'
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getCartData } from '../../store/action/country';
+import { DeleteProductCart } from '../../functions/addToCart';
 export default function CartBox() {
     let [qty, setQty] = useState(1);
     const { cart } = useSelector(state => state.countries)
@@ -11,7 +11,7 @@ export default function CartBox() {
     const dispatch = useDispatch()
     useEffect(() => {
         dispatch(getCartData())
-    }, []);
+    }, [cart]);
     return (
         <div className={style.container}>
             <div className={style.cartBoxContainer}>
@@ -67,7 +67,7 @@ export default function CartBox() {
                                                     <path id="Path_6018" data-name="Path 6018" d="M1.773,17.157a.523.523,0,0,1-.5-.661l1.047-3.837a.523.523,0,0,1,.135-.232L10.473,4.4a.523.523,0,0,1,.74,0L14,7.194a.523.523,0,0,1,0,.74L5.98,15.957a.523.523,0,0,1-.232.135L1.911,17.139A.523.523,0,0,1,1.773,17.157Zm1.515-4.089-.769,2.82,2.82-.769,7.555-7.555L10.843,5.513Z" transform="translate(0 -0.907)" fill="#72797e" />
                                                 </g>
                                             </svg>
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="15" viewBox="0 0 14 15">
+                                            <svg onClick={() => { DeleteProductCart (product.id, index) }} xmlns="http://www.w3.org/2000/svg" width="14" height="15" viewBox="0 0 14 15">
                                                 <g id="trash-2" transform="translate(-29 4.998)">
                                                     <path id="Union_10" data-name="Union 10" d="M3.407,15a1.95,1.95,0,0,1-1.972-1.92V3.84H.541a.543.543,0,0,1-.381-.154A.507.507,0,0,1,0,3.314a.532.532,0,0,1,.539-.521H3.588V1.92A1.952,1.952,0,0,1,5.563,0H8.437a1.949,1.949,0,0,1,1.972,1.92v.873h3.053A.533.533,0,0,1,14,3.314V3.32a.53.53,0,0,1-.539.52h-.9v9.24A1.95,1.95,0,0,1,10.588,15Zm-.892-1.92a.884.884,0,0,0,.892.875h7.181a.888.888,0,0,0,.9-.875V3.84H9.872a.583.583,0,0,1-.06,0H4.186c-.021,0-.039,0-.06,0H2.514ZM9.333,2.793V1.92a.885.885,0,0,0-.9-.871H5.563a.889.889,0,0,0-.9.871v.873ZM7.9,10.988V6.8a.538.538,0,0,1,1.075,0v4.184a.538.538,0,0,1-1.075,0Zm-2.872,0V6.8A.539.539,0,0,1,6.1,6.8v4.184a.539.539,0,0,1-1.077,0Z" transform="translate(29 -4.998)" fill="#72797e" />
                                                 </g>

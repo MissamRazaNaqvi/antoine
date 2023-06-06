@@ -5,6 +5,7 @@ import Checkout from './component/checkout/checkout';
 import ErrorPage from './component/errorpage/error';
 import FooterMain from './component/footer/footerMain';
 import Header from './component/header/header';
+import Whishlist from './component/header/whishlist';
 import Books from './component/main/books';
 import Cart from './component/main/cart';
 import Magazine from './component/main/magazine';
@@ -27,6 +28,7 @@ function App() {
             <Route path='Books/:id' element={<PdpBooks />}></Route>
             <Route path='*' element={<ErrorPage />}></Route>
             <Route path='/cart' element={<Cart />}></Route>
+            <Route path='whishlist' element={<Whishlist />}></Route>
           </Routes>
           <FooterMain />
         </>

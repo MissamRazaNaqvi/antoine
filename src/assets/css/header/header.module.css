@@ -135,6 +135,11 @@
     margin: 0px 5px;
 }
 
+.wishlistlink {
+    color: white;
+    text-decoration: none;
+}
+
 .pipe {
     height: 16px;
     border-right: 1px solid white;
@@ -456,6 +461,9 @@
     .searchBar svg {
         order: 4;
         margin: 12px 0px;
+    }
+    .searchBar button{
+        padding: 0px;
     }
 
     .searchBar input {

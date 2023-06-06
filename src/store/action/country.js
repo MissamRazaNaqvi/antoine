@@ -1,5 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { fetchAboutus, fetchBookByLanguage, fetchBooks, fetchCartData, fetchCategories, fetchCountry, fetchDeals, fetchFooter, fetchMegamenu, fetchMenu, fetchMusic, fetchProductsListing, fetchService, fetchToys } from "../../api/countryApi";
+import { fetchAboutus, fetchBookByLanguage, fetchBooks, fetchCartData, fetchCategories, fetchCountry, fetchDeals, fetchFooter, fetchMegamenu, fetchMenu, fetchMusic, fetchProductsListing, fetchService, fetchToys, fetchWhishlistData } from "../../api/countryApi";
 
 /**
  * Get All country
@@ -87,6 +87,12 @@ export const getMegaMenu = createAsyncThunk('mega/getmagamenu',
 export const getCartData = createAsyncThunk('cart/getCart',
     async () => {
         const { data } = await fetchCartData()
+        return data
+    }
+)
+export const getWishlist = createAsyncThunk('whishlist/getWhishlist',
+    async () => {
+        const { data } = await fetchWhishlistData()
         return data
     }
 )

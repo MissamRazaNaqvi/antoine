@@ -25,7 +25,7 @@
     border-bottom: 1px solid #b3aeae;
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
+    overflow-x: scroll;
 }
 
 .deal .dealCard {
@@ -91,6 +91,7 @@
     background: #fff;
     border-radius: 50%;
     padding: 6px;
+    cursor: pointer;
 }
 
 .bookCard img {
@@ -371,6 +372,10 @@
     .right {
         width: 100%;
         padding: 0px;
+    }
+
+    .cartBtn {
+        display: block;
     }
 }
 
