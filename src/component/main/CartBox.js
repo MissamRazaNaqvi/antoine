@@ -7,6 +7,7 @@ import { getCartData } from '../../store/action/country';
 export default function CartBox() {
     let [qty, setQty] = useState(1);
     const { cart } = useSelector(state => state.countries)
+    let len = cart.length
     const dispatch = useDispatch()
     useEffect(() => {
         dispatch(getCartData())
@@ -16,7 +17,7 @@ export default function CartBox() {
             <div className={style.cartBoxContainer}>
                 <div className={style.cartHead}>
                     <div className={style.productAmount}>
-                        <span className={style.itemInCart}><b>2</b> Items in Cart</span>
+                        <span className={style.itemInCart}><b>{len}</b> Items in Cart</span>
                         <div className={style.itemSubtotal}>
                             <span>Cart Subtotal:</span>
                             <span className={style.subtotal}>LBP 1,000,000</span>
@@ -34,7 +35,7 @@ export default function CartBox() {
                     {cart.map((product, index) => {
                         return (
                             <div className={style.cartItem} key={index}>
-                                <img src={Danser} alt='card item' />
+                                <img src={product.img} alt='card item' />
                                 <div className={style.cartItemDetail}>
                                     <span className={style.productName}>{product.title}</span>
                                     <span className={style.productAuth}>{product.auth}</span>
@@ -42,18 +43,22 @@ export default function CartBox() {
                                     <span className={style.productNational}>LBP {product.price}</span>
                                     <div className={style.quantity}>
                                         <button>
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="1.75" viewBox="0 0 14 1.75">
-                                                <g id="ic-minus-menu" transform="translate(-4 -10.125)">
-                                                    <path id="Line_17" data-name="Line 17" d="M12.125.75H-.125A.875.875,0,0,1-1-.125.875.875,0,0,1-.125-1h12.25A.875.875,0,0,1,13-.125.875.875,0,0,1,12.125.75Z" transform="translate(5 11.125)" fill="#333f48" />
-                                                </g>
-                                            </svg>
+                                            <span onClick={() => { setQty(--qty) }}>
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="1.75" viewBox="0 0 14 1.75">
+                                                    <g id="ic-minus-menu" transform="translate(-4 -10.125)">
+                                                        <path id="Line_17" data-name="Line 17" d="M12.125.75H-.125A.875.875,0,0,1-1-.125.875.875,0,0,1-.125-1h12.25A.875.875,0,0,1,13-.125.875.875,0,0,1,12.125.75Z" transform="translate(5 11.125)" fill="#333f48" />
+                                                    </g>
+                                                </svg>
+                                            </span>
                                             <span className={style.qty}>{qty}</span>
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14">
-                                                <g id="ic-plus" transform="translate(-4 -4)">
-                                                    <path id="Line_16" data-name="Line 16" d="M-.125,13A.875.875,0,0,1-1,12.125V-.125A.875.875,0,0,1-.125-1,.875.875,0,0,1,.75-.125v12.25A.875.875,0,0,1-.125,13Z" transform="translate(11.125 5)" fill="#333f48" />
-                                                    <path id="Line_17" data-name="Line 17" d="M12.125.75H-.125A.875.875,0,0,1-1-.125.875.875,0,0,1-.125-1h12.25A.875.875,0,0,1,13-.125.875.875,0,0,1,12.125.75Z" transform="translate(5 11.125)" fill="#333f48" />
-                                                </g>
-                                            </svg>
+                                            <span onClick={() => { setQty(++qty) }}>
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14">
+                                                    <g id="ic-plus" transform="translate(-4 -4)">
+                                                        <path id="Line_16" data-name="Line 16" d="M-.125,13A.875.875,0,0,1-1,12.125V-.125A.875.875,0,0,1-.125-1,.875.875,0,0,1,.75-.125v12.25A.875.875,0,0,1-.125,13Z" transform="translate(11.125 5)" fill="#333f48" />
+                                                        <path id="Line_17" data-name="Line 17" d="M12.125.75H-.125A.875.875,0,0,1-1-.125.875.875,0,0,1-.125-1h12.25A.875.875,0,0,1,13-.125.875.875,0,0,1,12.125.75Z" transform="translate(5 11.125)" fill="#333f48" />
+                                                    </g>
+                                                </svg>
+                                            </span>
                                         </button>
                                         <span className={style.updateBtn}>
                                             <svg className={style.editBtn} xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15">

@@ -1,3 +1,4 @@
+import { Toaster } from 'react-hot-toast';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import './App.css';
 import Checkout from './component/checkout/checkout';
@@ -16,6 +17,7 @@ function App() {
     <>
       {pathname === '/checkout' ? <Checkout /> :
         <>
+          <Toaster />
           <Header />
           <Routes>
             <Route path='/' element={<Main />} />

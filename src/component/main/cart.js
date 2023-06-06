@@ -116,7 +116,7 @@ export default function Cart() {
                         cart.map((cardItem, index) => {
                             return (
                                 <>
-                                    <div className={style.cardItems}>
+                                    <div className={style.cardItems} key={index}>
                                         <div className={style.top}>
                                             <div className={style.productImg}>
                                                 <img src={Danser} className={style.cartImg} alt='product' />

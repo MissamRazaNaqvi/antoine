@@ -7,7 +7,7 @@ export default function Deals({ deals }) {
                 return (
                     <div className={style.dealCard} key={index}>
                         <img src={deal.img} alt='wherwq'></img>
-                        <p>{deal.text}</p>
+                        <p className={style.deals}>{deal.text}</p>
                     </div>
                 )
             })}

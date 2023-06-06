@@ -1,8 +1,7 @@
 const URL = `${process.env.REACT_APP_API_BASEURL}`;
-export const ASSETSURL = process.env.REACT_APP_API_BASEURL
 
 const countryApi = {
-    getCountries: `${URL}/country`,
+    getCountries: `${process.env.REACT_APP_API_BASEURL}/country`,
     getMenu: `${URL}/menu`,
     topFooter: `${URL}/footer`,
     aboutus: `${URL}/aboutus`,

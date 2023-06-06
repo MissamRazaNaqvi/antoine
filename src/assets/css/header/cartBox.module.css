@@ -6,7 +6,7 @@
 
 .cartBoxContainer {
     position: absolute;
-    z-index: 1;
+    z-index: 2;
     right: 17px;
     display: flex;
     flex-direction: column;

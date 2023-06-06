@@ -11,7 +11,7 @@ export default function Bookbylang({ bookbylang }) {
                             <div className={style.langCard} key={index} style={{ "background": book.color }}>
                                 <div className={style.language}>
                                     <p>{book.langauge}</p>
-                                    <Link to={book.langauge}>View Collection</Link>
+                                    <Link to={book.langauge} className={style.langauge}>View Collection</Link>
                                 </div>
                                 <div className={style.bookImg}>
                                     <img src={book.img1} alt='book by language' />

@@ -38,6 +38,8 @@
     /* width: 100%; */
 }
 
+
+
 /* .slick-slide img {
     display: block;
     margin-bottom: 10px;
@@ -236,6 +238,16 @@
 .right {
     width: 80%;
     padding-left: 48px;
+}
+
+/* changes in css  */
+.langauge {
+    color: black;
+    font-size: 14px;
+}
+
+.deals {
+    margin: 15px 0px
 }
 
 @media only screen and (max-width: 767px) {
