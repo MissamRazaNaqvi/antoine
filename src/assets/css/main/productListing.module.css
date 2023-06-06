@@ -6,6 +6,7 @@
 .bookContent {
     display: flex;
     flex-wrap: wrap;
+
 }
 
 .cardListView {
@@ -228,7 +229,7 @@
     .bookCard {
         width: 155px;
         height: 338px;
-        margin: 16px;
+        margin: 8px;
     }
 
     .cartBtn {
@@ -238,6 +239,10 @@
     .bookCard .cardImg img {
         width: 155px;
         height: 210px;
+    }
+
+    .bookContent {
+        justify-content: center;
     }
 
     .bookContent button {
@@ -316,6 +321,10 @@
         font-size: 14px;
         font-weight: bold;
         margin-bottom: 24px;
+    }
+
+    .sortContent {
+        display: none;
     }
 }
 
@@ -411,5 +420,9 @@
         font-size: 14px;
         font-weight: bold;
         margin-bottom: 24px;
+    }
+
+    .sortContent {
+        display: none;
     }
 }
