@@ -160,7 +160,7 @@
 .hamburgerContent {
     position: absolute;
     z-index: 1;
-    top: -59px;
+    top: -75px;
     left: -25px;
 }
 
@@ -175,7 +175,7 @@
 .tab button {
     width: 50%;
     border: none;
-    padding: 20px 38px;
+    padding: 10px 38px;
     background: white;
     font-size: 16px;
     display: flex;
@@ -201,10 +201,11 @@
 
 .hamburgerContent ul li {
     background-color: white;
-    padding: 20px 24px;
+    padding: 10px 24px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    font-size: 14px;
 }
 
 .hamburgerContent ul li svg {

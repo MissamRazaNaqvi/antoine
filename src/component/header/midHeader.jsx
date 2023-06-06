@@ -6,7 +6,6 @@ import Hamburger from './hamburger';
 export default function MidHeader({ country, menu, megamenu }) {
     const [isActive, setIsActive] = useState(false);
     let [iscart, setIscart] = useState(false);
-    
     return (
         <div className={style.midHeader}>
             <div className={style.container}>
