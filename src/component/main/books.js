@@ -61,11 +61,13 @@ export default function Books() {
                     <div className={productcss.filterContent}>
                         <p className={style.bookTitle}>{Books}</p>
                         <div className={productcss.filter}>
-                            <span>Sort By</span>
-                            <select name="">
-                                <option value="hightolow">Price : High to Low</option>
-                                <option value="London">Price : Low to High</option>
-                            </select>
+                            <div className={productcss.sortContent}>
+                                <span>Sort By</span>
+                                <select name="">
+                                    <option value="hightolow">Price : High to Low</option>
+                                    <option value="London">Price : Low to High</option>
+                                </select>
+                            </div>
                             <div className={productcss.view}>
                                 <button onClick={() => setIsActive(!isActive)} className={!isActive ? productcss.isactive : productcss.button} >
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">

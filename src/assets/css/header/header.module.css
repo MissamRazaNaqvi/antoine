@@ -161,7 +161,7 @@
     position: absolute;
     z-index: 1;
     top: -59px;
-    left: -30px;
+    left: -25px;
 }
 
 
@@ -462,7 +462,8 @@
         order: 4;
         margin: 12px 0px;
     }
-    .searchBar button{
+
+    .searchBar button {
         padding: 0px;
     }
 

@@ -11,7 +11,8 @@
 .cardListView {
     display: flex;
     flex-wrap: wrap;
-    flex-direction: column
+    flex-direction: column;
+    justify-content: center;
 }
 
 .filterContent {
@@ -26,18 +27,18 @@
     align-items: center;
 }
 
-.filter span {
+/* .filter span {
     position: absolute;
     font-size: 10px;
     color: #72797E;
     top: 0;
-}
+} */
 
-.filter select {
+/* .filter select {
     border: none;
     margin-right: 16px;
     background-color: #fff;
-}
+} */
 
 /* PRODUCT CARD CSS START  */
 .bookCard {
@@ -204,6 +205,23 @@
 
 .view svg {
     padding-right: 12px;
+}
+
+.sortContent {
+    border: 1px solid #eeeeee;
+    padding: 10px 5px;
+    display: flex;
+    flex-direction: column;
+    margin: 1px 10px;
+}
+
+.sortContent span {
+    font-size: 10px;
+    color: #72797E;
+}
+
+.sortContent select {
+    border: none;
 }
 
 @media only screen and (max-width: 767px) {

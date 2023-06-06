@@ -24,7 +24,7 @@
 .deal {
     border-bottom: 1px solid #b3aeae;
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
     overflow-x: scroll;
 }
 
@@ -61,6 +61,7 @@
     display: flex;
     justify-content: center;
     overflow-x: scroll;
+    border-bottom: 1px solid #eee
 }
 
 .price {
@@ -191,6 +192,7 @@
 .unicorn {
     width: 100%;
     margin: 64px 0px;
+    
 }
 
 /* produict lising page css :start */
@@ -315,10 +317,13 @@
     .bookContent {
         justify-content: unset;
         padding: 10px 0px;
+        /* border-bottom: 1px solid #eee */
     }
 
     .bookTitle {
         font-size: 20px;
+        /* padding-top: 25px;
+        padding: 0px 16px; */
     }
 
     .bookCard {
@@ -342,8 +347,8 @@
         text-align: center;
         font-size: 12px;
         color: #333F48;
-        margin-top: 6px;
-        margin-bottom: 4px;
+        margin-top: 3px;
+        margin-bottom: 2px;
     }
 
     .bookCard button {
@@ -416,7 +421,7 @@
         width: 247px;
         height: 230px;
         /* padding: 40px; */
-        margin: 24px;
+        margin: 12px;
     }
 
     .bookImg img {
@@ -442,7 +447,8 @@
     /* Trending in books css start  */
     .bookContent {
         justify-content: unset;
-        padding: 10px 0px;
+        padding: 0px 0px;
+        /* border-bottom: 1px solid #eee */
     }
 
     .bookTitle {
@@ -470,8 +476,8 @@
         text-align: center;
         font-size: 12px;
         color: #333F48;
-        margin-top: 6px;
-        margin-bottom: 4px;
+        margin-top: 3px;
+        margin-bottom: 2px;
     }
 
     .bookCard button {
