@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, useParams } from 'react-router-dom';
 import { Rating } from 'react-simple-star-rating'
@@ -7,15 +8,21 @@ import productcss from '../../assets/css/main/productListing.module.css'
 import { AddToCart } from '../../functions/addToCart';
 import AddToWishlist from '../../functions/addToWishlist';
 import { getCategories, getProductsListing } from '../../store/action/country';
+import { handleSortChange } from '../../store/slices/productSlice';
 export default function Books() {
-    const { categories, products } = useSelector(state => state.productListingSlice)
+    const { categories, sorteditem } = useSelector(state => state.productListingSlice)
     const [isActive, setIsActive] = useState(false);
     const dispatch = useDispatch()
     let { Books } = useParams();
+    const { register, handleSubmit } = useForm()
+    function getData(data) {
+        dispatch(handleSortChange(data))
+    }
     useEffect(() => {
         dispatch(getCategories())
         dispatch(getProductsListing())
     }, []);
+
     return (
         <div className={style.container}>
             <div className={productcss.productContainer}>
@@ -63,10 +70,15 @@ export default function Books() {
                         <div className={productcss.filter}>
                             <div className={productcss.sortContent}>
                                 <span>Sort By</span>
-                                <select name="">
-                                    <option value="hightolow">Price : High to Low</option>
-                                    <option value="London">Price : Low to High</option>
-                                </select>
+                                <form onChange={handleSubmit(getData)}>
+                                    <select {...register("sorting")} defaultValue={"sort"}>
+                                        <option value="sort">sort</option>
+                                        <option value="a-z">Sort By Name A to Z</option>
+                                        <option value="z-a">Sort By Name Z to A</option>
+                                        <option value="low-high">Price Low to High</option>
+                                        <option value="high-low">Price High to Low</option>
+                                    </select>
+                                </form>
                             </div>
                             <div className={productcss.view}>
                                 <button onClick={() => setIsActive(!isActive)} className={!isActive ? productcss.isactive : productcss.button} >
@@ -93,7 +105,7 @@ export default function Books() {
                         </div>
                     </div>
                     <div className={!isActive ? productcss.bookContent : productcss.cardListView}>
-                        {products.map((product, index) => {
+                        {sorteditem.map((product, index) => {
                             return (
                                 <div key={index} className={!isActive ? productcss.bookCard : productcss.bookCardListView}>
                                     <div className={productcss.cardImg}>

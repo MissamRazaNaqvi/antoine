@@ -43,7 +43,7 @@
 
 /* PRODUCT CARD CSS START  */
 .bookCard {
-    width: 240px;
+    width: 232px;
     height: 481px;
     padding: 8px 5px;
     /* margin: 0px 16px; */
@@ -223,6 +223,7 @@
 
 .sortContent select {
     border: none;
+    background: transparent;
 }
 
 @media only screen and (max-width: 767px) {
@@ -339,7 +340,7 @@
     }
 
     .bookCard .cardImg img {
-        width: 155px;
+        width: 150px;
         height: 210px;
     }
 

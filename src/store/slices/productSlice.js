@@ -1,10 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { json } from "react-router-dom";
 import { getCategories, getMegaMenu, getProductsListing, getWishlist } from "../action/country";
 const initialState = {
     categories: [],
     products: [],
     megamenu: [],
     whishlist: [],
+    sorteditem: [],
     error: null,
     loading: false,
 }
@@ -12,7 +14,27 @@ const initialState = {
 const productListingSlice = createSlice({
     name: "products",
     initialState,
-    reducers: {},
+    reducers: {
+        handleSortChange: (state, action) => {
+            let { sorting } = action.payload
+            if (sorting === 'low-high') {
+                state.sorteditem = [...state.products].sort((a, b) => (a.price - b.price))
+            }
+            else if (sorting === 'high-low') {
+                state.sorteditem = [...state.products].sort((a, b) => (b.price - a.price))
+            }
+            else if (sorting === 'a-z') {
+                state.sorteditem = [...state.products].sort((a, b) => a.title.localeCompare(b.title))
+            }
+            else if (sorting === 'z-a') {
+                state.sorteditem = [...state.products].sort((a, b) => b.title.localeCompare(a.title))
+
+            }
+            else if (sorting === 'sort') {
+                state.sorteditem = state.products
+            }
+        }
+    },
     extraReducers: (builder) => {
         // categories of product in product listing page 
         builder
@@ -35,6 +57,7 @@ const productListingSlice = createSlice({
             .addCase(getProductsListing.fulfilled, (state, action) => {
                 state.loading = false;
                 state.products = action.payload;
+                state.sorteditem = action.payload;
             })
             .addCase(getProductsListing.rejected, (state, action) => {
                 state.loading = false;
@@ -69,3 +92,4 @@ const productListingSlice = createSlice({
 })
 
 export default productListingSlice.reducer
+export const { handleSortChange } = productListingSlice.actions
