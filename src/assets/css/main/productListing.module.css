@@ -45,7 +45,7 @@
 .bookCard {
     width: 240px;
     height: 481px;
-    padding-top: 16px;
+    padding: 8px 5px;
     /* margin: 0px 16px; */
     display: flex;
     flex-direction: column;
@@ -229,7 +229,8 @@
     .bookCard {
         width: 155px;
         height: 338px;
-        margin: 8px;
+        /* margin: 8px; */
+        padding: 0px;
     }
 
     .cartBtn {
@@ -242,7 +243,7 @@
     }
 
     .bookContent {
-        justify-content: center;
+        justify-content: space-around;
     }
 
     .bookContent button {
@@ -330,10 +331,7 @@
 
 @media only screen and (max-width: 375px) {
     .bookCard {
-        width: 155px;
-        height: 338px;
-        margin: 6px 3px;
-        margin-right: 12px;
+        width: calc((100%)/2);
     }
 
     .cartBtn {
