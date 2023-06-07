@@ -332,7 +332,8 @@
     .bookCard {
         width: 155px;
         height: 338px;
-        margin: 16px;
+        margin: 6px 0px;
+        margin-right: 12px;
     }
 
     .cartBtn {
