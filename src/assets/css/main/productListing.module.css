@@ -44,17 +44,15 @@
 /* PRODUCT CARD CSS START  */
 .bookCard {
     width: 232px;
-    height: 481px;
+    height: 490px;
     padding: 8px 5px;
-    /* margin: 0px 16px; */
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
     align-items: center;
     position: relative;
 }
 
-.bookCard .cardContent .price {
+.price {
     font-size: 18px;
     font-weight: bold;
     margin-bottom: 24px;
@@ -96,11 +94,15 @@
     height: 240px;
 }
 
-.cardListView .bookCardListView .cardContent {
-    margin-left: 48px;
+.cardContent {
+    /* margin-left: 48px; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-.cardListView .bookCardListView .cardContent .cartBtn {
+.cartBtn {
     display: block;
     background-color: #333F48;
     color: #fff;
@@ -109,28 +111,31 @@
     width: 208px;
     text-align: center;
     border: 0px;
-    position: relative;
+    /* position: relative; */
     /* bottom: 0px;
     right: 8px; */
     margin: 6px;
     cursor: pointer;
 }
 
-.cardListView .bookCardListView .cardContent .title {
+.title {
     font-size: 20px;
     margin-bottom: 12px;
+    min-height: 20px;
 }
 
-.cardListView .bookCardListView .cardContent .author {
+.author {
     font-size: 14px;
     margin-bottom: 16px;
+    color: #00838C;
+    min-height: 20px;
 }
 
-.cardListView .bookCardListView .cardContent .rating {
+.rating {
     margin-bottom: 33px;
 }
 
-.cardListView .bookCardListView .cardContent .price {
+.price {
     font-size: 18px;
     font-weight: bold;
     margin-bottom: 24px;
@@ -142,11 +147,9 @@
     color: #333F48;
     margin-top: 6px;
     margin-bottom: 4px;
+
 }
 
-.bookCard .author {
-    color: #00838C;
-}
 
 .cartBtn {
     display: none;
@@ -154,12 +157,9 @@
     color: #fff;
     font-size: 16px;
     height: 48px;
-    width: 208px;
+    width: 200px;
     text-align: center;
     border: 0px;
-    position: absolute;
-    bottom: 0px;
-    right: 8px;
     margin: 6px;
     cursor: pointer;
 }
@@ -229,8 +229,8 @@
 @media only screen and (max-width: 767px) {
     .bookCard {
         width: 155px;
-        height: 338px;
-        /* margin: 8px; */
+        height: 360px;
+        margin: 8px 0px;
         padding: 0px;
     }
 
@@ -247,13 +247,12 @@
         justify-content: space-around;
     }
 
-    .bookContent button {
-        display: none;
-
+    .price {
+        margin: 0px;
     }
 
-    .bookCard:hover .cartBtn {
-        display: none;
+    .bookCard .cartBtn {
+        display: block;
     }
 
     .filter span,
@@ -287,39 +286,43 @@
         height: 210px;
     }
 
-    .cardListView .bookCardListView .cardContent {
-        margin-left: 28px;
+    .cardContent {
+        /* margin-left: 28px; */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
 
-    .cardListView .bookCardListView .cardContent .cartBtn {
+    .cartBtn {
         display: block;
         background-color: #333F48;
         color: #fff;
         font-size: 16px;
-        height: 36pt;
-        width: 153px;
+        height: 36px;
+        width: 140px;
         text-align: center;
         border: 0px;
-        position: relative;
-        margin: 6px;
+        /* position: relative; */
+        margin: 0px 8px;
         cursor: pointer;
     }
 
-    .cardListView .bookCardListView .cardContent .title {
+    .title {
         font-size: 14px;
         margin-bottom: 12px;
     }
 
-    .cardListView .bookCardListView .cardContent .author {
+    .author {
         font-size: 12px;
         margin-bottom: 16px;
     }
 
-    .cardListView .bookCardListView .cardContent .rating {
+    .rating {
         margin-bottom: 33px;
     }
 
-    .cardListView .bookCardListView .cardContent .price {
+    .price {
         font-size: 14px;
         font-weight: bold;
         margin-bottom: 24px;
@@ -328,15 +331,25 @@
     .sortContent {
         display: none;
     }
+
+    .bookCard.cartBtn {
+        display: block;
+    }
+
+    .bookCard {
+        box-shadow: none;
+    }
 }
 
 @media only screen and (max-width: 375px) {
     .bookCard {
         width: calc((100%)/2);
+        margin-bottom: 32px;
     }
 
     .cartBtn {
         display: block;
+        height: 36px;
     }
 
     .bookCard .cardImg img {
@@ -345,11 +358,18 @@
     }
 
     .bookContent button {
-        display: none;
-
+        display: block;
+        background-color: #333f48;
+        border: 0;
+        color: #fff;
+        cursor: pointer;
+        font-size: 16px;
+        height: 35px;
+        text-align: center;
+        width: 139px;
     }
 
-    .bookCard:hover .cartBtn {
+    .bookCard .cartBtn {
         display: none;
     }
 
@@ -384,45 +404,55 @@
         height: 210px;
     }
 
-    .cardListView .bookCardListView .cardContent {
-        margin-left: 28px;
+    .cardContent {
+        /* margin-left: 28px; */
     }
 
-    .cardListView .bookCardListView .cardContent .cartBtn {
+    .cartBtn {
         display: block;
         background-color: #333F48;
         color: #fff;
         font-size: 16px;
-        height: 36pt;
-        width: 153px;
+        height: 36px;
+        width: 122px;
         text-align: center;
         border: 0px;
-        position: relative;
+        /* position: relative; */
         margin: 6px;
         cursor: pointer;
     }
 
-    .cardListView .bookCardListView .cardContent .title {
+    .title {
         font-size: 14px;
         margin-bottom: 12px;
+        min-height: 35px;
     }
 
-    .cardListView .bookCardListView .cardContent .author {
+    .author {
         font-size: 12px;
         margin-bottom: 16px;
     }
 
-    .cardListView .bookCardListView .cardContent .rating {
+    .rating {
         margin-bottom: 33px;
     }
 
-    .cardListView .bookCardListView .cardContent .price {
+    .price {
         font-size: 14px;
         font-weight: bold;
         margin-bottom: 24px;
+        margin: 0px;
     }
 
     .sortContent {
         display: none;
+    }
+
+    .bookCard:hover {
+        box-shadow: none;
+    }
+
+    .bookCard .cartBtn {
+        display: block;
     }
 }
