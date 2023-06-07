@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { json } from "react-router-dom";
 import { getCategories, getMegaMenu, getProductsListing, getWishlist } from "../action/country";
 const initialState = {
     categories: [],

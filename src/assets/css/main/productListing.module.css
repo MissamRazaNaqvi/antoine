@@ -61,10 +61,10 @@
 .bookCardListView {
     width: 100%;
     height: 273px;
-    /* padding-top: 16px; */
+    padding-top: 16px;
     display: flex;
     flex-direction: row;
-    /* align-items: center; */
+    align-items: center;
     position: relative;
 }
 
@@ -103,6 +103,19 @@
 }
 
 .cartBtn {
+    display: none;
+    background-color: #333F48;
+    color: #fff;
+    font-size: 16px;
+    height: 48px;
+    width: 200px;
+    text-align: center;
+    border: 0px;
+    margin: 6px;
+    cursor: pointer;
+}
+
+.bookCardListView .cartBtn {
     display: block;
     background-color: #333F48;
     color: #fff;
@@ -151,18 +164,7 @@
 }
 
 
-.cartBtn {
-    display: none;
-    background-color: #333F48;
-    color: #fff;
-    font-size: 16px;
-    height: 48px;
-    width: 200px;
-    text-align: center;
-    border: 0px;
-    margin: 6px;
-    cursor: pointer;
-}
+
 
 .cartBtn svg {
     padding: 0px 8px;
@@ -192,6 +194,7 @@
     padding: 14px 16px;
     display: flex;
     align-items: center;
+    cursor: pointer;
 }
 
 .view .button {
@@ -214,6 +217,7 @@
     display: flex;
     flex-direction: column;
     margin: 1px 10px;
+    cursor: pointer;
 }
 
 .sortContent span {
@@ -234,8 +238,13 @@
         padding: 0px;
     }
 
-    .cartBtn {
+    .bookCardListView {
+        margin-left: 0px;
+    }
+
+    .bookCardListView .cartBtn {
         display: block;
+        width: 140px;
     }
 
     .bookCard .cardImg img {
@@ -276,6 +285,7 @@
     }
 
     .bookCardListView {
+
         width: 343px;
         height: 212px;
         padding: 25px 16px;
@@ -284,10 +294,11 @@
     .bookCardListView .cardImg img {
         width: 140px;
         height: 210px;
+
     }
 
-    .cardContent {
-        /* margin-left: 28px; */
+    .bookCardListView .cardContent {
+        margin-left: 14px;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -300,11 +311,11 @@
         color: #fff;
         font-size: 16px;
         height: 36px;
-        width: 140px;
+        width: 155px;
         text-align: center;
         border: 0px;
         /* position: relative; */
-        margin: 0px 8px;
+        margin: 0px;
         cursor: pointer;
     }
 
@@ -352,6 +363,15 @@
         height: 36px;
     }
 
+    .bookCardListView {
+        margin-left: 0px;
+    }
+
+    .bookCardListView .cartBtn {
+        display: block;
+        width: 140px;
+    }
+
     .bookCard .cardImg img {
         width: 150px;
         height: 210px;
@@ -394,7 +414,7 @@
     }
 
     .bookCardListView {
-        width: 343px;
+        width: 322px;
         height: 212px;
         padding: 25px 16px;
     }
