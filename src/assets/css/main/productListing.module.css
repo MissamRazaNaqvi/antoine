@@ -230,6 +230,14 @@
     background: transparent;
 }
 
+.mobileSort {
+    display: none;
+}
+
+/* .mobileSortContent {
+    display: none;
+} */
+
 @media only screen and (max-width: 767px) {
     .bookCard {
         width: 155px;
@@ -349,6 +357,56 @@
 
     .bookCard {
         box-shadow: none;
+    }
+
+    .mobileSort {
+        display: block;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+    }
+
+    .mobileFilterBtn {
+        width: 50%;
+        background-color: white;
+        padding: 10px;
+        font-size: 14pt;
+        border: none;
+        border-right: 1px solid grey;
+    }
+
+    .mobileFilterBtnSvg {
+        margin-right: 10px;
+        width: 17.084px;
+        height: 20px;
+    }
+
+    .mobileSortBtn {
+        width: 50%;
+        background-color: white;
+        padding: 10px;
+        font-size: 14pt;
+        border: none;
+    }
+
+    .sortForm {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .mobileSortContent {
+        position: fixed;
+        bottom: 0;
+        background: white;
+        width: 100%;
+    }
+
+    .sortBy {
+        margin: 3px 0px;
+    }
+    .sortByInput{
+        margin-right: 10px;
     }
 }
 
@@ -474,5 +532,49 @@
 
     .bookCard .cartBtn {
         display: block;
+    }
+
+    .mobileSort {
+        display: block;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+    }
+
+    .mobileFilterBtn {
+        width: 50%;
+        background-color: white;
+        padding: 10px;
+        font-size: 14pt;
+        border: none;
+        border-right: 1px solid grey;
+    }
+
+    .mobileFilterBtnSvg {
+        margin-right: 10px;
+        width: 17.084px;
+        height: 20px;
+    }
+
+    .mobileSortBtn {
+        width: 50%;
+        background-color: white;
+        padding: 10px;
+        font-size: 14pt;
+        border: none;
+    }
+
+    .sortForm {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .mobileSortContent {
+        padding: 10px 50px 10px;
+        position: fixed;
+        bottom: 0;
+        background: white;
+        width: 100%;
     }
 }

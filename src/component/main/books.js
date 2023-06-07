@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux'
+import { useMediaQuery } from 'react-responsive';
 import { Link, useParams } from 'react-router-dom';
 import { Rating } from 'react-simple-star-rating'
 import style from '../../assets/css/main/main.module.css'
@@ -12,10 +13,19 @@ import { handleSortChange } from '../../store/slices/productSlice';
 export default function Books() {
     const { categories, sorteditem } = useSelector(state => state.productListingSlice)
     const [isActive, setIsActive] = useState(false);
+    const [isSort, setIsSort] = useState(false);
     const dispatch = useDispatch()
     let { Books } = useParams();
     const { register, handleSubmit } = useForm()
+    const isMobileScreen = useMediaQuery({ query: '(max-width: 575px)' })
+    console.log('screen size', isMobileScreen)
     function getData(data) {
+        dispatch(handleSortChange(data))
+        console.log('radio button data ', data)
+    }
+
+    function onSubmitButton(data) {
+        console.log(data)
         dispatch(handleSortChange(data))
     }
     useEffect(() => {
@@ -134,6 +144,40 @@ export default function Books() {
                                 </div>)
                         })}
                     </div>
+                    {
+                        isMobileScreen ? <div className={productcss.mobileSort}>
+                            <button className={productcss.mobileFilterBtn}>
+                                <svg className={productcss.mobileFilterBtnSvg} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17.084 20">
+                                    <path id="ic-filter" d="M93.379,115.238a.628.628,0,0,1-.374-.122l-3.58-1.879a.6.6,0,0,1-.249-.483v-7.34l-6.033-9.248a.586.586,0,0,1-.1-.322.615.615,0,0,1,.622-.6H99.508a.63.63,0,0,1,.545.312.587.587,0,0,1-.021.617L94,105.413v9.22a.591.591,0,0,1-.125.363.63.63,0,0,1-.5.242Zm-.622-1.813v-8.187a.586.586,0,0,1,.1-.326l5.522-8.465H84.8l5.524,8.469a.576.576,0,0,1,.1.322v7.214Z" transform="translate(-83.047 -95.238)" fill="#333f48" />
+                                </svg>Filter</button>
+                            <button className={productcss.mobileSortBtn} onClick={() => { setIsSort(!isSort) }}>
+                                <svg className={productcss.mobileFilterBtnSvg} fill="#333f48" version="1.1" id="Capa_1"
+                                    viewBox="0 0 490 490" space="preserve">
+                                    <g>
+                                        <polygon points="85.877,154.014 85.877,428.309 131.706,428.309 131.706,154.014 180.497,221.213 217.584,194.27 108.792,44.46 
+		0,194.27 37.087,221.213 	"/>
+                                        <polygon points="404.13,335.988 404.13,61.691 358.301,61.691 358.301,335.99 309.503,268.787 272.416,295.73 381.216,445.54 
+		490,295.715 452.913,268.802 	"/>
+                                    </g>
+                                </svg>Sort By</button>
+                        </div> : ''
+                    }
+                    {isSort ?
+                        <div className={productcss.mobileSortContent}>
+                            <span onClick={() => { setIsSort(!isSort) }}>Sort By</span>
+                            <form onChange={handleSubmit(onSubmitButton)} className={productcss.sortForm}>
+                                <label className={productcss.sortBy}>
+                                    <input className={productcss.sortByInput} {...register("sort")} type="radio" defaultValue="sort" />sort</label>
+                                <label className={productcss.sortBy}>
+                                    <input className={productcss.sortByInput} {...register("sort")} type="radio" value="a-z" />Name A to Z</label>
+                                <label className={productcss.sortBy}>
+                                    <input className={productcss.sortByInput} {...register("sort")} type="radio" value="z-a" />Name Z to A</label>
+                                <label className={productcss.sortBy}>
+                                    <input className={productcss.sortByInput} {...register("sort")} type="radio" value="low-high" />Price Low to High</label>
+                                <label className={productcss.sortBy}>
+                                    <input className={productcss.sortByInput} {...register("sort")} type="radio" value="high-low" />Price High to Low</label>
+                            </form>
+                        </div> : ''}
                 </div>
             </div>
         </div>
