@@ -18,14 +18,14 @@ export default function Books() {
     let { Books } = useParams();
     const { register, handleSubmit } = useForm()
     const isMobileScreen = useMediaQuery({ query: '(max-width: 575px)' })
-    console.log('screen size', isMobileScreen)
+    // console.log('screen size', isMobileScreen)
     function getData(data) {
         dispatch(handleSortChange(data))
-        console.log('radio button data ', data)
+        // console.log('radio button data ', data)
     }
 
     function onSubmitButton(data) {
-        console.log(data)
+        // console.log(data)
         dispatch(handleSortChange(data))
     }
     useEffect(() => {
