@@ -17,8 +17,8 @@ export default function Books() {
     const dispatch = useDispatch()
     let { Books } = useParams();
     const { register, handleSubmit } = useForm()
-    const isMobileScreen = useMediaQuery({ query: '(max-width: 575px)' })
-    const isDesktopcreen = useMediaQuery({ query: '(min-width: 575px)' })
+    const isMobileScreen = useMediaQuery({ query: '(max-width: 767px)' })
+    // const isDesktopcreen = useMediaQuery({ query: '(min-width: 575px )' })
     // console.log('screen size', isMobileScreen)
     function getData(data) {
         dispatch(handleSortChange(data))
@@ -79,7 +79,7 @@ export default function Books() {
                     <div className={productcss.filterContent}>
                         <p className={style.bookTitle}>{Books}</p>
                         <div className={productcss.filter}>
-                            {isDesktopcreen ?
+                            {!isMobileScreen ?
                                 <div className={productcss.sortContent}>
                                     <span>Sort By</span>
                                     <form onChange={handleSubmit(getData)}>
