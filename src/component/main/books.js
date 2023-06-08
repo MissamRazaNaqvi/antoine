@@ -18,16 +18,17 @@ export default function Books() {
     let { Books } = useParams();
     const { register, handleSubmit } = useForm()
     const isMobileScreen = useMediaQuery({ query: '(max-width: 575px)' })
+    const isDesktopcreen = useMediaQuery({ query: '(min-width: 575px)' })
     // console.log('screen size', isMobileScreen)
     function getData(data) {
         dispatch(handleSortChange(data))
-        // console.log('radio button data ', data)
+        console.log('radio button data ', data)
     }
 
-    function onSubmitButton(data) {
-        // console.log(data)
-        dispatch(handleSortChange(data))
-    }
+    // function onSubmitButton(data) {
+    //     // console.log(data)
+    //     dispatch(handleSortChange(data))
+    // }
     useEffect(() => {
         dispatch(getCategories())
         dispatch(getProductsListing())
@@ -78,18 +79,20 @@ export default function Books() {
                     <div className={productcss.filterContent}>
                         <p className={style.bookTitle}>{Books}</p>
                         <div className={productcss.filter}>
-                            <div className={productcss.sortContent}>
-                                <span>Sort By</span>
-                                <form onChange={handleSubmit(getData)}>
-                                    <select {...register("sorting")} defaultValue={"sort"}>
-                                        <option value="sort">sort</option>
-                                        <option value="a-z">Sort By Name A to Z</option>
-                                        <option value="z-a">Sort By Name Z to A</option>
-                                        <option value="low-high">Price Low to High</option>
-                                        <option value="high-low">Price High to Low</option>
-                                    </select>
-                                </form>
-                            </div>
+                            {isDesktopcreen ?
+                                <div className={productcss.sortContent}>
+                                    <span>Sort By</span>
+                                    <form onChange={handleSubmit(getData)}>
+                                        <select {...register("sorting")} defaultValue={"sort"}>
+                                            <option value="sort">sort</option>
+                                            <option value="a-z">Sort By Name A to Z</option>
+                                            <option value="z-a">Sort By Name Z to A</option>
+                                            <option value="low-high">Price Low to High</option>
+                                            <option value="high-low">Price High to Low</option>
+                                        </select>
+                                    </form>
+                                </div> : ''}
+
                             <div className={productcss.view}>
                                 <button onClick={() => setIsActive(!isActive)} className={!isActive ? productcss.isactive : productcss.button} >
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
@@ -165,17 +168,17 @@ export default function Books() {
                     {isSort ?
                         <div className={productcss.mobileSortContent}>
                             <span onClick={() => { setIsSort(!isSort) }}>Sort By</span>
-                            <form onChange={handleSubmit(onSubmitButton)} className={productcss.sortForm}>
+                            <form onChange={handleSubmit(getData)} className={productcss.sortForm}>
                                 <label className={productcss.sortBy}>
-                                    <input className={productcss.sortByInput} {...register("sort")} type="radio" defaultValue="sort" />sort</label>
+                                    <input className={productcss.sortByInput} {...register("sorting")} type="radio" defaultValue="sort" />sort</label>
                                 <label className={productcss.sortBy}>
-                                    <input className={productcss.sortByInput} {...register("sort")} type="radio" value="a-z" />Name A to Z</label>
+                                    <input className={productcss.sortByInput} {...register("sorting")} type="radio" value="a-z" />Name A to Z</label>
                                 <label className={productcss.sortBy}>
-                                    <input className={productcss.sortByInput} {...register("sort")} type="radio" value="z-a" />Name Z to A</label>
+                                    <input className={productcss.sortByInput} {...register("sorting")} type="radio" value="z-a" />Name Z to A</label>
                                 <label className={productcss.sortBy}>
-                                    <input className={productcss.sortByInput} {...register("sort")} type="radio" value="low-high" />Price Low to High</label>
+                                    <input className={productcss.sortByInput} {...register("sorting")} type="radio" value="low-high" />Price Low to High</label>
                                 <label className={productcss.sortBy}>
-                                    <input className={productcss.sortByInput} {...register("sort")} type="radio" value="high-low" />Price High to Low</label>
+                                    <input className={productcss.sortByInput} {...register("sorting")} type="radio" value="high-low" />Price High to Low</label>
                             </form>
                         </div> : ''}
                 </div>
