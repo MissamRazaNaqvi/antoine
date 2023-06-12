@@ -1,3 +1,4 @@
+import { t } from 'i18next';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import style from '../../assets/css/main/checkout.module.css'
@@ -13,61 +14,61 @@ export default function Shipping({ isShipping, setisShipping, check, cart, setCh
     return (
         <div className={style.content}>
             <div className={style.shipAddress}>
-                <div className={style.shipAddressTitle}>Shipping Address</div>
+                <div className={style.shipAddressTitle}>{t('Shipping Address')}</div>
                 <div className={style.addresses}>
                     <div className={`${style.addressCard} ${isTap ? style.borderChange : ''}`} onClick={() => { setIsTap(!isTap) }}>
-                        <span>Veronica Costello</span>
-                        <span className={style.address}>6146 Honey Bluff Parkway Calder, Michigan 49628-7978</span>
+                        <span>{t('Veronica Costello')}</span>
+                        <span className={style.address}>{t('6146 Honey Bluff Parkway Calder, Michigan 49628-7978')}</span>
                         <span className={style.PhoneNumber}>(555) 229-3326</span>
-                        <span className={style.ship}>Ship Here</span>
+                        <span className={style.ship}>{t('Ship Here')}</span>
                         {!isTap ? <svg className={style.checkedSvg} xmlns="http://www.w3.org/2000/svg" width="12.867" height="10.008" viewBox="0 0 12.867 10.008">
                             <path id="arrow-left" d="M4.766,2,0,6.825l8.12,8.042,1.888-1.89-6.2-6.152L6.672,3.89Z" transform="translate(-2 10.008) rotate(-90)" fill="#fff" fillRule="evenodd" />
                         </svg> : ''
                         }
                     </div>
                     <div className={`${style.addressCard} ${!isTap ? style.borderChange : ''}`} onClick={() => { setIsTap(!isTap) }}>
-                        <span>Veronica Costello</span>
-                        <span className={style.address}>6146 Honey Bluff Parkway Calder, Michigan 49628-7978</span>
+                        <span>{t('Veronica Costello')}</span>
+                        <span className={style.address}>{t('6146 Honey Bluff Parkway Calder, Michigan 49628-7978')}</span>
                         <span className={style.PhoneNumber}>(555) 229-3326</span>
-                        <span className={style.ship}>Ship Here</span>
+                        <span className={style.ship}>{t('Ship Here')}</span>
                         {isTap ? <svg className={style.checkedSvg} xmlns="http://www.w3.org/2000/svg" width="12.867" height="10.008" viewBox="0 0 12.867 10.008">
                             <path id="arrow-left" d="M4.766,2,0,6.825l8.12,8.042,1.888-1.89-6.2-6.152L6.672,3.89Z" transform="translate(-2 10.008) rotate(-90)" fill="#fff" fillRule="evenodd" />
                         </svg> : ''
                         }
                     </div>
                 </div>
-                <button className={style.addressBtn} onClick={() => { setIsaddressForm(!isaddressForm) }}>+ New Address</button>
+                <button className={style.addressBtn} onClick={() => { setIsaddressForm(!isaddressForm) }}>+ {t('New Address')}</button>
                 {isaddressForm ?
                     <div className={style.addressBackground}>
                         <div className={style.addressForm}>
                             <form className={style.PopupForm} onSubmit={handleSubmit(onSubmit)}>
-                                <div className={style.Title}>Shipping Address</div>
+                                <div className={style.Title}>{t('Shipping Address')}</div>
                                 <div className={style.formField}>
-                                    <label htmlFor="firstname">First Name</label>
+                                    <label htmlFor="firstname">{t('First Name')}</label>
                                     <input type='text' placeholder="Veronica" {...register('firstname')} />
-                                    <label htmlFor="lastname">Last Name</label>
+                                    <label htmlFor="lastname">{t('Last Name')}</label>
                                     <input type='text' placeholder="Costello"{...register('lastname')} />
-                                    <label htmlFor="company">Company</label>
+                                    <label htmlFor="company">{t('Company')}</label>
                                     <input type='text' placeholder=""{...register('company')} />
-                                    <label htmlFor="street">Street Address</label>
+                                    <label htmlFor="street">{t('Street Address')}</label>
                                     <input type='text' placeholder=""{...register('street')} />
                                     <input type='text' placeholder=""{...register('street1')} />
                                     <input type='text' placeholder=""{...register('street2')} />
                                     <input type='text' placeholder=""{...register('street3')} />
-                                    <label htmlFor="country">Country</label>
-                                    <label htmlFor="state">State/Province</label>
-                                    <label htmlFor="city">City</label>
+                                    <label htmlFor="country">{t('Country')}</label>
+                                    <label htmlFor="state">{t('State/Province')}</label>
+                                    <label htmlFor="city">{t('City')}</label>
                                     <input type='text' placeholder=""{...register('city')} />
-                                    <label htmlFor="country">Zip/Postal Code</label>
+                                    <label htmlFor="country">{t('Zip/Postal Code')}</label>
                                     <input type='number' placeholder=""{...register('zipcode')} />
                                 </div>
                                 <div className={style.formFooter}>
                                     <div>
                                         <input type="checkbox" id="addressCheckbox" name="addressCheckbox" value="addressCheckbox" />
-                                        <label for="vehicle1">Save in address book</label>
+                                        <label for="vehicle1">{t('Save in address book')}</label>
                                     </div>
                                     <div>
-                                        <button className={style.cancelBtn} onClick={() => setIsaddressForm(false)}>Cancel</button>
+                                        <button className={style.cancelBtn} onClick={() => setIsaddressForm(false)}>{t('Cancel')}</button>
                                         <input type="submit" className={style.shipBtn} value='Ship Here'></input>
                                     </div>
                                 </div>
@@ -79,30 +80,30 @@ export default function Shipping({ isShipping, setisShipping, check, cart, setCh
                     </div> : ''
                 }
                 <div className={style.shipMethod}>
-                    <div className={style.shipAddressTitle}>Shipping Methods</div>
+                    <div className={style.shipAddressTitle}>{t('Shipping Methods')}</div>
                     <div className={style.clickCollect}>
                         <input type="radio" defaultChecked onChange={() => { setSavedAddress(true) }} id="option1" name="radio" />
-                        <label for="option1"><span>LBP 20,000</span>Click & Collect</label>
+                        <label for="option1"><span>LBP 20,000</span>{t('Click & Collect')}</label>
                     </div>
                     <div className={style.clickCollect}>
                         <input type="radio" onChange={() => { setSavedAddress(false) }} id="option3" name="radio" />
-                        <label for="option3"><span>LBP 40,000</span>Home delivery</label>
+                        <label for="option3"><span>LBP 40,000</span>{t('Home delivery')}</label>
                     </div>
                 </div>
                 {
                     savedAddress ? <div className={style.storeContent}>
-                        <div className={style.shipAddressTitle}>Shipping Methods</div>
+                        <div className={style.shipAddressTitle}>{t('Shipping Methods')}</div>
                         <select className={style.storeSelect}>
-                            <option>Select a store</option>
+                            <option>{t('Select a store')}</option>
                         </select>
                         <div className={style.storeAddress}>
-                            <span className={style.storeName}><b>Store Name:</b>Achrafieh – Sassine</span>
-                            <span className={style.storeAddress1}>Store Address</span>
-                            <span className={style.street}>Independence Street (Elias Sarkis Avenue، Lebanon)</span>
+                            <span className={style.storeName}><b>{t('Store Name')}:</b>{t('Achrafieh – Sassine')}</span>
+                            <span className={style.storeAddress1}>{t('Store Address')}</span>
+                            <span className={style.street}>{t('Independence Street (Elias Sarkis Avenue، Lebanon)')}</span>
                             <span className={style.mobileNumber}>+961 1 331 811</span>
                             <div className={style.map}>
-                                <span>More About Store &gt;</span><br />
-                                <span>View Store On Google Map &gt;</span>
+                                <span>{t('More About Store')} &gt;</span><br />
+                                <span>{t('View Store On Google Map')} &gt;</span>
                             </div>
                         </div>
                     </div> : ''
@@ -111,21 +112,21 @@ export default function Shipping({ isShipping, setisShipping, check, cart, setCh
                 <div className={style.pickup}>
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <div className={style.formField}>
-                            <label htmlFor="pickupDate">Pickup A Date</label>
+                            <label htmlFor="pickupDate">{t('Pickup A Date')}</label>
                             <input type='date' defaultChecked placeholder="Select a pickup date" {...register('pickupDate')} />
-                            <label htmlFor="pickTime">Select A Time</label>
+                            <label htmlFor="pickTime">{t('Select A Time')}</label>
                             <input type='text' placeholder="Select a time Slot"{...register('pickTime')} />
                         </div>
                     </form>
                 </div>
                 <div className={style.nextBtnContent}>
-                    <button className={style.nextBtn} onClick={() => { setisShipping(!isShipping); setCheck(!check) }}>Next</button>
+                    <button className={style.nextBtn} onClick={() => { setisShipping(!isShipping); setCheck(!check) }}>{t('Next')}</button>
                 </div>
             </div>
             <div className={style.summary}>
-                <span className={style.summaryTitle}>Summary</span>
+                <span className={style.summaryTitle}>{t('Summary')}</span>
                 <div className={style.cartItemContent}>
-                    <span>5 Items in Cart</span>
+                    <span>{t('5 Items in Cart')}</span>
                     {
                         cart.map((cartItem, index) => {
                             return (
@@ -138,7 +139,7 @@ export default function Shipping({ isShipping, setisShipping, check, cart, setCh
                                             <span className={style.productAuth}>{cartItem.auth}</span>
                                         </div>
                                     </div>
-                                    <span className={style.productPrice}>LBP {cartItem.price}</span>
+                                    <span className={style.productPrice}>{t('LBP')} {cartItem.price}</span>
                                 </div>
                             )
                         })

@@ -1,3 +1,4 @@
+import { t } from 'i18next';
 import { useState } from 'react';
 import style from '../../assets/css/header/header.module.css'
 export default function EndHeader({ menu, megamenu }) {
@@ -10,7 +11,7 @@ export default function EndHeader({ menu, megamenu }) {
                         return (
                             <li className={style.menu} key={index} onClick={() => { setstate(!state) }} >
                                 {/* <Link className={style.menulink} to={item}> */}
-                                {item}
+                                {t(item)}
                                 {/* </Link> */}
                             </li>
                         )
@@ -20,30 +21,30 @@ export default function EndHeader({ menu, megamenu }) {
                     {state ?
                         <div className={style.megaMenu} >
                             <ul className={style.subjectUl}>
-                                <li><b> TOP SUBJECTS</b></li>
+                                <li><b> {t('TOP SUBJECTS')}</b></li>
                                 {
                                     megamenu.length > 0 && megamenu[0].topsubject.map((subject, index) => {
                                         return (
-                                            <li key={index}>{subject.name}</li>)
+                                            <li key={index}>{t(subject.name)}</li>)
                                     })
                                 }
                             </ul>
                             <ul className={style.browseUl}>
-                                <li><b>BROWSE</b></li>
+                                <li><b>{t('BROWSE')}</b></li>
                                 {
                                     megamenu.length > 0 && megamenu[0].browse.map((item, index) => {
                                         return (
-                                            <li key={index}>{item.name}</li>)
+                                            <li key={index}>{t(item.name)}</li>)
 
                                     })
                                 }
                             </ul>
                             <ul className={style.departmentUl}>
-                                <li><b>DEPARTMENTS</b></li>
+                                <li><b>{t('DEPARTMENTS')}</b></li>
                                 {
                                     megamenu.length > 0 && megamenu[0].departments.map((dept, index) => {
                                         return (
-                                            <li key={index}>{dept.name}</li>
+                                            <li key={index}>{t(dept.name)}</li>
                                         )
                                     })
                                 }

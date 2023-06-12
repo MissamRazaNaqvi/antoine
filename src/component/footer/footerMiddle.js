@@ -1,4 +1,5 @@
 
+import { t } from 'i18next'
 import style from '../../assets/css/footer/footer.module.css'
 import MobileFooter from '../mobileView/mobileFooter'
 
@@ -11,40 +12,40 @@ export default function FooterMiddle({ menu, aboutus, service }) {
       <div className={style.middleFooter}>
         <ul className={style.categories}>
           <div className={style.text}>
-            Categories
+            {t('Categories')}
           </div>
           {
             menu && menu?.map((item, index) => {
-              return <li key={index}>{item}</li>
+              return <li key={index}>{t(item)}</li>
             })
           }
         </ul>
         <ul className={style.categories}>
           <div className={style.text}>
-            About Us
+            {t('About us')}
           </div>
           {
             aboutus && aboutus?.map((item, index) => {
-              return <li key={index}>  {item}   </li>
+              return <li key={index}>{t(item)}</li>
             })
           }
         </ul>
         <ul className={style.categories}>
           <div className={style.text}>
-            Customer Service
+            {t('Customer Service')}
           </div>
           {
             service && service?.map((item, index) => {
-              return <li key={index}>{item}</li>
+              return <li key={index}>{t(item)}</li>
             })
           }
         </ul>
         <div>
           <div className={style.text}>
-            <p>Sign up for savings, news, and updates</p>
+            <p>{t('Sign up for savings, news, and updates')}</p>
           </div>
           <div className={style.email}>
-            <input type='email' placeholder='Email address' />
+            <input type='email' placeholder={t('Email address')} />
             <button >
               <svg xmlns="http://www.w3.org/2000/svg" width="14" height="24" viewBox="0 0 14 24">
                 <path id="ic_arrow_right" d="M9.75,29a1.763,1.763,0,0,0,1.237-.5l10.5-10.286a1.69,1.69,0,0,0,0-2.424L10.987,5.5a1.776,1.776,0,0,0-2.475,0,1.69,1.69,0,0,0,0,2.424L17.775,17,8.513,26.074a1.69,1.69,0,0,0,0,2.424A1.763,1.763,0,0,0,9.75,29Z" transform="translate(-8 -5)" fill="#fff" />
@@ -83,8 +84,8 @@ export default function FooterMiddle({ menu, aboutus, service }) {
           </svg>
 
         </div>
-        <p>Copyright 2013-2021 - Antoine Online - All Rights Reserved </p>
-        <p>Lorem Ipsum Is Simply Dummy Text Of The Printing And Typesetting Industry.</p>
+        <p>{t('Copyright 2013-2021 - Antoine Online - All Rights Reserved')} </p>
+        <p>{t('Lorem Ipsum Is Simply Dummy Text Of The Printing And Typesetting Industry.')}</p>
       </div>
     </div>
   )

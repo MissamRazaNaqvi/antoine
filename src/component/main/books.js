@@ -1,3 +1,4 @@
+import { t } from 'i18next';
 import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux'
@@ -18,77 +19,69 @@ export default function Books() {
     let { Books } = useParams();
     const { register, handleSubmit } = useForm()
     const isMobileScreen = useMediaQuery({ query: '(max-width: 767px)' })
-    // const isDesktopcreen = useMediaQuery({ query: '(min-width: 575px )' })
-    // console.log('screen size', isMobileScreen)
     function getData(data) {
         dispatch(handleSortChange(data))
         console.log('radio button data ', data)
     }
-
-    // function onSubmitButton(data) {
-    //     // console.log(data)
-    //     dispatch(handleSortChange(data))
-    // }
     useEffect(() => {
         dispatch(getCategories())
         dispatch(getProductsListing())
     }, []);
-
     return (
         <div className={style.container}>
             <div className={productcss.productContainer}>
                 <div className={style.left}>
-                    <span className={style.title}>Category</span>
+                    <span className={style.title}>{t('Category')}</span>
                     <ul>
                         {categories.length > 0 && categories[0].cate.map((category, index) => {
                             return (
-                                <li key={index}>{category.name}</li>
+                                <li key={index}>{t(category.name)}</li>
                             )
                         })}
                     </ul>
-                    <div className={style.title}>Language</div>
+                    <div className={style.title}>{t('Language')}</div>
                     {
                         categories.length > 0 && categories[0].languages.map((languageCheck, index) => {
                             return (
                                 <label key={index}>
                                     <input type="checkbox" />
-                                    {languageCheck.language}
+                                    {t(languageCheck.language)}
                                 </label>
                             )
                         })
                     }
-                    <div className={style.title}>Format</div>
+                    <div className={style.title}>{t('Format')}</div>
                     {
                         categories.length > 0 && categories[0].format.map((languageCheck, index) => {
                             return (
                                 <label key={index}>
                                     <input type="checkbox" />
-                                    {languageCheck.format}
+                                    {t(languageCheck.format)}
                                 </label>
                             )
                         })
                     }
-                    <div className={style.title}>Price Range</div>
+                    <div className={style.title}>{t('Price Range')}</div>
                     <input id="typeinp" type="range" style={{ color: '#333F48' }} min="0" max="5" step="1" />
                     <div className={style.range}>
-                        <label>LBP 100</label>
-                        <label>LBP 400,000</label>
+                        <label>{t('LBP')} 100</label>
+                        <label>{t('LBP')} 400,000</label>
                     </div>
                 </div>
                 <div className={style.right}>
                     <div className={productcss.filterContent}>
-                        <p className={style.bookTitle}>{Books}</p>
+                        <p className={style.bookTitle}>{t(Books)}</p>
                         <div className={productcss.filter}>
                             {!isMobileScreen ?
                                 <div className={productcss.sortContent}>
-                                    <span>Sort By</span>
+                                    <span>{t('Sort By')}</span>
                                     <form onChange={handleSubmit(getData)}>
                                         <select {...register("sorting")} defaultValue={"sort"}>
-                                            <option value="sort">sort</option>
-                                            <option value="a-z">Sort By Name A to Z</option>
-                                            <option value="z-a">Sort By Name Z to A</option>
-                                            <option value="low-high">Price Low to High</option>
-                                            <option value="high-low">Price High to Low</option>
+                                            <option value="sort">{t('sort')}</option>
+                                            <option value="a-z">{t('Sort By Name A to Z')}</option>
+                                            <option value="z-a">{t('Sort By Name Z to A')}</option>
+                                            <option value="low-high">{t('Price Low to High')}</option>
+                                            <option value="high-low">{t('Price High to Low')}</option>
                                         </select>
                                     </form>
                                 </div> : ''}
@@ -102,7 +95,7 @@ export default function Books() {
                                             <path id="Rectangle_1973-2" data-name="Rectangle 1973" d="M-.083-.75H6.794a.683.683,0,0,1,.667.7V7.183a.683.683,0,0,1-.667.7H-.083a.683.683,0,0,1-.667-.7V-.052A.683.683,0,0,1-.083-.75ZM6.127.645H.583v5.84H6.127Z" transform="translate(14.79 14.369)" fill="#333f48" />
                                             <path id="Rectangle_1974-2" data-name="Rectangle 1974" d="M-.083-.75H6.794a.683.683,0,0,1,.667.7V7.183a.683.683,0,0,1-.667.7H-.083a.683.683,0,0,1-.667-.7V-.052A.683.683,0,0,1-.083-.75ZM6.127.645H.583v5.84H6.127Z" transform="translate(14.79 3)" fill="#333f48" />
                                         </g>
-                                    </svg>Grid</button>
+                                    </svg>{t('Grid')}</button>
                                 <button onClick={() => setIsActive(!isActive)} className={isActive ? productcss.isactive : productcss.button}>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
                                         <g id="layout-list" transform="translate(-2.25 -2.25)">
@@ -113,7 +106,7 @@ export default function Books() {
                                             <path id="Line_3" data-name="Line 3" d="M7.776.645H-.083a.683.683,0,0,1-.667-.7.683.683,0,0,1,.667-.7h7.86a.683.683,0,0,1,.667.7A.683.683,0,0,1,7.776.645Z" transform="translate(13.807 15.403)" fill="#72797e" />
                                             <path id="Line_4" data-name="Line 4" d="M7.776.645H-.083a.683.683,0,0,1-.667-.7.683.683,0,0,1,.667-.7h7.86a.683.683,0,0,1,.667.7A.683.683,0,0,1,7.776.645Z" transform="translate(13.807 20.571)" fill="#72797e" />
                                         </g>
-                                    </svg>List</button>
+                                    </svg>{t('List')}</button>
                             </div>
                         </div>
                     </div>
@@ -130,17 +123,17 @@ export default function Books() {
                                         </svg>
                                     </div>
                                     <div className={productcss.cardContent}>
-                                        <p className={productcss.title}>{product.title}</p>
-                                        <p className={productcss.author}>{product.author} </p>
+                                        <p className={productcss.title}>{t(product.title)}</p>
+                                        <p className={productcss.author}>{t(product.author)} </p>
                                         <p className={productcss.rating}><Rating size={15} fillColor='orange' emptyColor='gray' /></p>
-                                        <p className={productcss.price}>LBP {product.price}</p>
+                                        <p className={productcss.price}>{t('LBP')} {t(product.price)}</p>
 
                                         <button onClick={() => { AddToCart(product.title, product.author, product.price, product.img) }} className={productcss.cartBtn}>
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
                                                 <g id="shopping-cart" transform="translate(0 -0.001)">
                                                     <path id="Union_4" data-name="Union 4" d="M24,29.217A2.669,2.669,0,1,1,26.666,32,2.728,2.728,0,0,1,24,29.217Zm-14.667,0A2.728,2.728,0,0,1,12,26.436,2.785,2.785,0,0,1,12,32,2.729,2.729,0,0,1,9.334,29.217Zm-.4-8.924L6.708,8.678a.5.5,0,0,1-.022-.115L5.576,2.783H1.335A1.363,1.363,0,0,1,0,1.391,1.359,1.359,0,0,1,1.335,0H6.667a1.343,1.343,0,0,1,1.3,1.115L9.095,6.957H30.666a1.309,1.309,0,0,1,1.029.5,1.435,1.435,0,0,1,.281,1.146L29.844,20.281c-.006.006-.006.006-.006.012a4.043,4.043,0,0,1-3.917,3.359H12.855A4.038,4.038,0,0,1,8.935,20.293Zm2.615-.545a1.345,1.345,0,0,0,1.333,1.121H25.921a1.344,1.344,0,0,0,1.3-1.115L29.052,9.738H9.628Z" transform="translate(0 0.001)" fill='#fff' />
                                                 </g>
-                                            </svg>Add To Cart
+                                            </svg>{t('ADD TO CART')}
                                         </button>
 
                                     </div>

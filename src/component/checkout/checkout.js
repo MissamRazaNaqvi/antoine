@@ -1,3 +1,4 @@
+import { t } from 'i18next';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom'
@@ -56,7 +57,7 @@ export default function Checkout() {
                                     <path id="Path_407" data-name="Path 407" d="M51.286,4.74a.417.417,0,0,0-.233-.339L42.094.042a.417.417,0,0,0-.365,0L32.77,4.4a.417.417,0,0,0-.233.339,23.068,23.068,0,0,0,.721,7.088,19,19,0,0,0,2.668,6.008,15.717,15.717,0,0,0,5.793,5.117.418.418,0,0,0,.385,0A15.717,15.717,0,0,0,47.9,17.836a19,19,0,0,0,2.668-6.008A23.069,23.069,0,0,0,51.286,4.74ZM41.911,16.168a5.311,5.311,0,1,1,5.311-5.311A5.317,5.317,0,0,1,41.911,16.168Z" fill="#000000" />
                                 </g>
                             </svg>
-                            Secure Checkout
+                            {t(' Secure Checkout')}
                         </span>
                     </div>
                 </div>
@@ -69,7 +70,7 @@ export default function Checkout() {
                             <div className={`${style.reviewItem} ${check ? style.checkedBorder : ''} `}>&#10003;</div>
                             <div className={`${check ? style.checked : ''} ${style.svgLine}`} ></div>
                         </div>
-                        <div className={`${!check ? style.reviewTitle : style.reviewTitleActive}`}>Shipping</div>
+                        <div className={`${!check ? style.reviewTitle : style.reviewTitleActive}`}>{t('Shipping')}</div>
                     </div>
                     <div className={style.review} onClick={() => { setisShipping(!isShipping); setCheck(!check) }}>
                         <div className={style.reviewSvg}>
@@ -77,7 +78,7 @@ export default function Checkout() {
                             <div className={`${style.reviewItem} ${!check ? style.checkedBorder : ''} `}>1</div>
                             <div className={`${!check ? style.checked : ''} ${style.svgLine}`}></div>
                         </div>
-                        <div className={`${check ? style.reviewTitle : style.reviewTitleActive}`}>Review & Payments</div>
+                        <div className={`${check ? style.reviewTitle : style.reviewTitleActive}`}>{t('Review & Payments')}</div>
                     </div>
                 </div>
                 {isShipping ? <Shipping cart={cart} setisShipping={setisShipping} isShipping={isShipping} check={check} setCheck={setCheck} /> : <Payment cart={cart} />}
@@ -112,8 +113,8 @@ export default function Checkout() {
                         </g>
                     </svg>
                 </div>
-                <p>Copyright 2013-2021 - Antoine Online - All Rights Reserved </p>
-                <p>Lorem Ipsum Is Simply Dummy Text Of The Printing And Typesetting Industry.</p>
+                <p>{t('Copyright 2013-2021 - Antoine Online - All Rights Reserved')} </p>
+                <p>{t('Lorem Ipsum Is Simply Dummy Text Of The Printing And Typesetting Industry.')}</p>
             </div>
         </div>
     )

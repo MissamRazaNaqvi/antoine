@@ -1,17 +1,18 @@
+import { t } from 'i18next'
 import { Link } from 'react-router-dom'
 import style from '../../assets/css/main/main.module.css'
 export default function Bookbylang({ bookbylang }) {
     return (
         <div>
-            <p className={style.bookTitle}>Books by Language</p>
+            <p className={style.bookTitle}>{t('Books by Language')}</p>
             <div className={style.container}>
                 <div className={style.bookContainer}>
                     {bookbylang.map((book, index) => {
                         return (
                             <div className={style.langCard} key={index} style={{ "background": book.color }}>
                                 <div className={style.language}>
-                                    <p>{book.langauge}</p>
-                                    <Link to={book.langauge} className={style.langauge}>View Collection</Link>
+                                    <p>{t(book.langauge)}</p>
+                                    <Link to={book.langauge} className={style.langauge}>{t('View Collection')}</Link>
                                 </div>
                                 <div className={style.bookImg}>
                                     <img src={book.img1} alt='book by language' />

@@ -1,3 +1,4 @@
+import { t } from 'i18next';
 import { useState } from 'react';
 import { Link } from 'react-router-dom'
 import style from '../../assets/css/header/header.module.css'
@@ -55,7 +56,7 @@ export default function MidHeader({ country, menu, megamenu }) {
                     {/* <div className={style.search}> */}
                     <div className={style.searchBar}>
                         <select>
-                            <option>All</option>
+                            <option>{t('All')}</option>
                         </select>
                         <input type='search' placeholder='Search products by title, author, category, brand etc…' />
                         <button >

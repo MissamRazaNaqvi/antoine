@@ -1,3 +1,4 @@
+import { t } from 'i18next'
 import style from '../../assets/css/main/main.module.css'
 export default function Deals({ deals }) {
     // console.log('deals from Deals table  ', deals);
@@ -7,7 +8,7 @@ export default function Deals({ deals }) {
                 return (
                     <div className={style.dealCard} key={index}>
                         <img src={deal.img} alt='wherwq'></img>
-                        <p className={style.deals}>{deal.text}</p>
+                        <p className={style.deals}>{t(deal.text)}</p>
                     </div>
                 )
             })}

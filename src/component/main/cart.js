@@ -6,6 +6,7 @@ import style from '../../assets/css/header/cart.module.css'
 import { getCartData } from '../../store/action/country';
 import Danser from '../../assets/images/Danser.png'
 import { Link } from 'react-router-dom';
+import { t } from 'i18next';
 export default function Cart() {
     const { cart } = useSelector(state => state.countries)
     const dispatch = useDispatch()
@@ -52,8 +53,8 @@ export default function Cart() {
             {/* <div className={style.cartBox}> */}
 
             <div className={style.cartTitle}>
-                <span className={style.title}>Shopping Cart</span>
-                <span className={style.subTitle}>You have 5 items in cart.</span>
+                <span className={style.title}>{t('Shopping Cart')}</span>
+                <span className={style.subTitle}>{t('You have 5 items in cart.')}</span>
             </div>
             <div className={style.cartBody}>
                 <div className={style.left}>
@@ -62,10 +63,10 @@ export default function Cart() {
                             <table className={style.table}>
                                 <thead>
                                     <tr>
-                                        <th className={style.prodDesc}>Product Description</th>
-                                        <th>Price</th>
-                                        <th>QTY</th>
-                                        <th className={style.subTotalColumn}>Subtotal</th>
+                                        <th className={style.prodDesc}>{t('Product Description')}</th>
+                                        <th>{t('Price')}</th>
+                                        <th>{t('QTY')}</th>
+                                        <th className={style.subTotalColumn}>{t('Subtotal')}</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -78,20 +79,20 @@ export default function Cart() {
                                                             <img className={style.cartImg} src={`${cartItem.img}`} alt='Trending book' />
                                                         </div>
                                                         <div className={style.productDesc}>
-                                                            <span className={style.productName}>{cartItem.title}</span>
-                                                            <span className={style.productAuth}>{cartItem.auth}</span>
-                                                            <span className={style.productGlobal}>For International: 1-2 days</span>
-                                                            <span className={style.productNational}>For Lebanon: 6-8 days</span>
+                                                            <span className={style.productName}>{t(cartItem.title)}</span>
+                                                            <span className={style.productAuth}>{t(cartItem.auth)}</span>
+                                                            <span className={style.productGlobal}>{t('For International: 1-2 days')}</span>
+                                                            <span className={style.productNational}>{t('For Lebanon: 6-8 days')}</span>
                                                         </div>
                                                     </div>
                                                 </td>
-                                                <td className={style.price} >LBP {cartItem.price}</td>
+                                                <td className={style.price} >{t('LBP')} {cartItem.price}</td>
                                                 <td><div className={style.qtyBtn}><span>-</span><span>{cartItem.qty}</span><span>+</span></div></td>
-                                                <td className={style.subTotalPrice}>LBP {cartItem.price}</td>
+                                                <td className={style.subTotalPrice}>{t('LBP')} {cartItem.price}</td>
                                             </tr>
                                                 <tr className={style.buttons}>
                                                     <td colSpan={5}>
-                                                        <span className={style.wishlist}>Move to Wishlist</span>
+                                                        <span className={style.wishlist}>{t('Move to Wishlist')}</span>
                                                         <svg className={style.editBtn} xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15">
                                                             <g id="pencil" transform="translate(-1.25 -1.25)">
                                                                 <path id="Line_46" data-name="Line 46" d="M2.564,3.087a.522.522,0,0,1-.37-.153L-.6.143A.523.523,0,0,1-.6-.6a.523.523,0,0,1,.74,0L2.934,2.194a.523.523,0,0,1-.37.893Z" transform="translate(13.163 2)" fill="#72797e" />
@@ -111,8 +112,6 @@ export default function Cart() {
                             </table>
                         </div>
                         :
-
-
                         cart.map((cardItem, index) => {
                             return (
                                 <>
@@ -122,26 +121,26 @@ export default function Cart() {
                                                 <img src={Danser} className={style.cartImg} alt='product' />
                                             </div>
                                             <div className={style.productDesc}>
-                                                <span className={style.productName}>{cardItem.title}</span>
-                                                <span className={style.productAuth}>Campisi, Megan</span>
-                                                <span className={style.productGlobal}>For International: 1-2 days</span>
-                                                <span className={style.productNational}>For Lebanon: 6-8 days</span>
+                                                <span className={style.productName}>{t(cardItem.title)}</span>
+                                                <span className={style.productAuth}>{t('Campisi, Megan')}</span>
+                                                <span className={style.productGlobal}>{t('For International: 1-2 days')}</span>
+                                                <span className={style.productNational}>{t('For Lebanon: 6-8 days')}</span>
                                             </div>
                                         </div>
                                         <div className={style.bottom}>
                                             <div className={style.price}>
-                                                <span>Price</span>
+                                                <span>{t('Price')}</span>
                                                 <span>LBP 40000</span>
                                             </div>
                                             <div className={style.qtyContent}>
                                                 <span>QTY</span>
                                                 <button className={style.qtyBtn}><span>-</span><span className={style.qtyCount}>1</span><span>+</span></button>
                                             </div>
-                                            <div className={style.subTotalPrice}><span>Subtotal</span><span>LBP 40000</span></div>
+                                            <div className={style.subTotalPrice}><span>{t('Subtotal')}</span><span>LBP 40000</span></div>
                                         </div>
                                         <div className={style.buttons}>
                                             <div colSpan={5}>
-                                                <span className={style.wishlist}>Move to Wishlist</span>
+                                                <span className={style.wishlist}>{t('Move to Wishlist')}</span>
                                                 <svg className={style.editBtn} xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15">
                                                     <g id="pencil" transform="translate(-1.25 -1.25)">
                                                         <path id="Line_46" data-name="Line 46" d="M2.564,3.087a.522.522,0,0,1-.37-.153L-.6.143A.523.523,0,0,1-.6-.6a.523.523,0,0,1,.74,0L2.934,2.194a.523.523,0,0,1-.37.893Z" transform="translate(13.163 2)" fill="#72797e" />
@@ -163,34 +162,34 @@ export default function Cart() {
                     <div className={style.cartFooter}>
                         <div className={style.cartFooterTop}>
                             <select>
-                                <option>Gift Options</option>
+                                <option>{t('Gift Options')}</option>
                             </select>
                             <select>
-                                <option>Gift Card</option>
+                                <option>{t('Gift Card')}</option>
                             </select>
                         </div>
                         <div className={style.footerBody}>
                             <div className={style.discount}>
-                                <input type='text' placeholder='Enter discount code' />
-                                <button>Apply Discount</button>
+                                <input type='text' placeholder={t('Enter discount code')} />
+                                <button>{t('Apply Discount')}</button>
                             </div>
                             <div className={style.update}>
-                                <span>&lt; Continue Shopping </span>
-                                <button>Update Cart</button>
+                                <span>&lt;{t('Continue Shopping')} </span>
+                                <button>{t('Update Cart')}</button>
                             </div>
                         </div>
                         <div className={style.footerEnd}>
-                            <span className={style.note}>Note:</span>
-                            <span className={style.noteDesc}>Upon confirming this order. we will send you an email with an ‘Order You might asked to pay additional duties, taxes, and charges by the upon By placing your order, you that you and agreed to Antoine Terms and Conditions.</span>
+                            <span className={style.note}>{t('Note')}:</span>
+                            <span className={style.noteDesc}>{t('Upon confirming this order. we will send you an email with an ‘Order You might asked to pay additional duties, taxes, and charges by the upon By placing your order, you that you and agreed to Antoine Terms and Conditions.')}</span>
                         </div>
                     </div>
 
                 </div>
                 <div className={style.right}>
                     <div className={style.cartContainer}>
-                        <div className={style.summary}>Summary</div>
+                        <div className={style.summary}>{t('Summary')}</div>
                         <div className={style.chargeAndText}>
-                            <span>Estimate Shipping Charges and Tax</span>
+                            <span>{t('Estimate Shipping Charges and Tax')}</span>
                             <span onClick={() => { setIsAddress(!isAddress) }}>
                                 <svg className={isAddress ? style.svgRotate : ''} xmlns="http://www.w3.org/2000/svg" width="10" height="6" viewBox="0 0 10 6">
                                     <path id="arrow-dropdown-wt" d="M.75,10a.767.767,0,0,0,.53-.209l4.5-4.286a.69.69,0,0,0,0-1.01L1.28.209A.777.777,0,0,0,.22.209a.691.691,0,0,0,0,1.01L4.189,5,.22,8.781a.69.69,0,0,0,0,1.01A.767.767,0,0,0,.75,10Z" transform="translate(10) rotate(90)" fill="#000" />
@@ -200,29 +199,29 @@ export default function Cart() {
                         {isAddress ?
                             <div className={style.address}>
                                 <div className={style.country}>
-                                    <div className={style.countryTitle}>Country</div>
-                                    <select className={style.select} value={selectedCountry} onChange={handleCountryChange}>
+                                    <div className={style.countryTitle}>{t('Country')}</div>
+                                    <select className={style.select} value={t(selectedCountry)} onChange={handleCountryChange}>
                                         {countryOptions.map((option) => (
                                             <option key={option.value} value={option.value}>
-                                                {option.label}
+                                                {t(option.label)}
                                             </option>
                                         ))}
                                     </select>
                                 </div>
                                 <div className={style.country}>
-                                    <div className={style.countryTitle}>State/Province</div>
+                                    <div className={style.countryTitle}>{t('State/Province')}</div>
                                     {(
                                         <select className={style.select} value={selectedState} onChange={handleStateChange}>
                                             {stateOptions[`${selectedCountry ? selectedCountry : 'Default'}`].map((option) => (
                                                 <option key={option.value} value={option.value}>
-                                                    {option.label}
+                                                    {t(option.label)}
                                                 </option>
                                             ))}
                                         </select>
                                     )}
                                 </div>
                                 <div className={style.zipcode}>
-                                    <div className={style.countryTitle}>Zip/Postal Code</div>
+                                    <div className={style.countryTitle}>{t('Zip/Postal Code')}</div>
                                     <input type='text' className={style.zipcodeInput}></input>
                                 </div>
                             </div>
@@ -230,29 +229,29 @@ export default function Cart() {
                         }
                         <div className={style.bill}>
                             <div>
-                                <span>Sub Total</span>
-                                <span>LBP 1,100,000</span>
+                                <span>{t('SubTotal')}</span>
+                                <span>{t('LBP')} 1,100,000</span>
                             </div>
                             <div>
-                                <span>Total Shipping Charges</span>
-                                <span>LBP 20,000</span>
+                                <span>{t('Total Shipping Charges')}</span>
+                                <span>{t('LBP')} 20,000</span>
                             </div>
                             <div className={style.tax}>
-                                <span>Tax</span>
-                                <span>LBP 20,000</span>
+                                <span>{t('Tax')}</span>
+                                <span>{t('LBP')} 20,000</span>
                             </div>
 
                         </div>
                         <div className={style.orderTotal}>
-                            <span>Order Total</span>
-                            <span>LBP 1,140,000</span>
+                            <span>{t('Order Total')}</span>
+                            <span>{t('LBP')} 1,140,000</span>
                         </div>
                         <Link className={style.checkoutLink} to='/checkout'>
                             <button className={style.checkoutBtn}>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="15" height="20" viewBox="0 0 15 20">
                                     <path id="Path_1818" data-name="Path 1818" d="M78.583,7.5h-1.25V5.833a5.833,5.833,0,0,0-11.667,0V7.5h-1.25A.416.416,0,0,0,64,7.917V18.333A1.668,1.668,0,0,0,65.667,20H77.333A1.668,1.668,0,0,0,79,18.333V7.917A.416.416,0,0,0,78.583,7.5Zm-5.836,8.7a.417.417,0,0,1-.414.463H70.667a.417.417,0,0,1-.414-.463l.263-2.364a1.648,1.648,0,0,1-.682-1.34,1.667,1.667,0,0,1,3.333,0,1.648,1.648,0,0,1-.682,1.34Zm2.086-8.7H68.167V5.833a3.333,3.333,0,0,1,6.667,0Z" transform="translate(-64)" fill="#fff" />
                                 </svg>
-                                Proceed To Checkout</button>
+                                {t('Proceed To Checkout')}</button>
                         </Link>
                     </div>
                 </div>

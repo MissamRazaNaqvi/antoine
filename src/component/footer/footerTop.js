@@ -1,3 +1,4 @@
+import { t } from 'i18next'
 import React from 'react'
 import { Link } from 'react-router-dom'
 import style from '../../assets/css/footer/footer.module.css'
@@ -21,7 +22,7 @@ export default function FooterTop({ footer }) {
                                 <path id="Path_6263" data-name="Path 6263" d="M18.994,2.4H28.9a1,1,0,0,1,.991,1v25a1,1,0,0,1-.991,1H17.343a3.986,3.986,0,0,0-3.962,4,.991.991,0,1,1-1.981,0V10.067A7.639,7.639,0,0,1,18.994,2.4Zm8.915,2H18.994a5.647,5.647,0,0,0-5.613,5.667V28.932A5.888,5.888,0,0,1,17.343,27.4H27.909Z" transform="translate(6.509)" fill="#333f48" />
                             </g>
                         </svg>
-                        <Link>50000+ Books</Link>
+                        <Link>50000+{t('Books')}</Link>
                     </li>
                     <li>
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26 32">
@@ -30,7 +31,7 @@ export default function FooterTop({ footer }) {
                                 <path id="Path_6263" data-name="Path 6263" d="M12.33,17.249a.9.9,0,0,1-.641-.265L8.666,13.965a.906.906,0,1,1,1.283-1.281l2.382,2.378,5.405-5.4a.906.906,0,0,1,1.283,1.281l-6.047,6.038A.9.9,0,0,1,12.33,17.249Z" transform="translate(2.558 4.075)" fill="#333f48" />
                             </g>
                         </svg>
-                        <Link>Guaranted Lowest Price</Link>
+                        <Link>{t('Guaranted Lowest Price')}</Link>
                     </li>
                     <li>
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29 32">
@@ -39,7 +40,7 @@ export default function FooterTop({ footer }) {
                                 <path id="Line_3" data-name="Line 3" d="M.306,16.364a.9.9,0,0,1-.906-.9V.3A.9.9,0,0,1,.306-.6a.9.9,0,0,1,.906.9v15.16A.9.9,0,0,1,.306,16.364Z" transform="translate(16.595 17.038)" fill="#333f48" />
                             </g>
                         </svg>
-                        <Link>Free Shipping</Link>
+                        <Link>{t('Free Shipping')}</Link>
                     </li>
                     <li>
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
@@ -47,7 +48,7 @@ export default function FooterTop({ footer }) {
                                 <path id="Union_7" data-name="Union 7" d="M20684,13979a16,16,0,1,1,16,16A16.022,16.022,0,0,1,20684,13979Zm1.809,0a14.188,14.188,0,1,0,14.193-14.188A14.207,14.207,0,0,0,20685.809,13979Zm7.43,3.562a.906.906,0,0,1,1.445-1.092,6.641,6.641,0,0,0,10.633,0,.906.906,0,0,1,1.445,1.092,8.455,8.455,0,0,1-13.523,0Zm11.287-6.582a1.508,1.508,0,0,1,0-3.016h.016a1.508,1.508,0,0,1,0,3.016Zm-9.057,0a1.508,1.508,0,0,1,0-3.016h.016a1.508,1.508,0,0,1,0,3.016Z" transform="translate(-20794.998 -13989.998)" fill="#333f48" />
                             </g>
                         </svg>
-                        <Link>Best Customer Service</Link>
+                        <Link>{t('Best Customer Service')}</Link>
                     </li>
                 </ul>
             </div>
