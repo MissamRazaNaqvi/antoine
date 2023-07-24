@@ -3,9 +3,11 @@ import { useState } from 'react';
 import style from '../../assets/css/header/header.module.css'
 import MegamenuMobile from '../main/megamenuMobile';
 import rightArrow from '../../assets/images/icons8-left-arrow-48.png'
+import { useTranslation } from 'react-i18next';
 
 
 export default function Hamburger({ menu, country, megamenu, setIsActive }) {
+    let {t}=useTranslation()
     const [isActive, setisActive] = useState(false);
     const [isMegamenu, setMegamenu] = useState(false);
     // const [select, setSelect] = useState("LB");

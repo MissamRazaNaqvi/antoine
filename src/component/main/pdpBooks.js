@@ -1,7 +1,7 @@
 import ProgressBar from '@ramonak/react-progress-bar';
 import axios from 'axios';
-import { t } from 'i18next';
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { useMediaQuery } from 'react-responsive';
 import { useParams } from 'react-router-dom';
@@ -13,6 +13,7 @@ import TrendingBook from './trendingBook';
 export default function PdpBooks() {
     const { books, music } = useSelector(state => state.countries)
     const dispatch = useDispatch()
+    let {t}=useTranslation()
     const [product, setproducts] = useState([]);
     const [isDesc, setIsDesc] = useState(false);
     // addInfo State for Additonal information toggle

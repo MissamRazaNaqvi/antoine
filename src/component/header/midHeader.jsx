@@ -1,5 +1,5 @@
-import { t } from 'i18next';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom'
 import style from '../../assets/css/header/header.module.css'
 import CartBox from '../main/CartBox';
@@ -7,6 +7,7 @@ import Hamburger from './hamburger';
 export default function MidHeader({ country, menu, megamenu }) {
     const [isActive, setIsActive] = useState(false);
     let [iscart, setIscart] = useState(false);
+    let { t } = useTranslation()
     return (
         <div className={style.midHeader}>
             <div className={style.container}>

@@ -1,7 +1,8 @@
-import { t } from 'i18next'
+import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import style from '../../assets/css/main/main.module.css'
 export default function Bookbylang({ bookbylang }) {
+    let {t}=useTranslation()
     return (
         <div>
             <p className={style.bookTitle}>{t('Books by Language')}</p>

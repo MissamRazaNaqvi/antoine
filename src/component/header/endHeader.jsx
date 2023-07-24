@@ -1,8 +1,9 @@
-import { t } from 'i18next';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import style from '../../assets/css/header/header.module.css'
 export default function EndHeader({ menu, megamenu }) {
     const [state, setstate] = useState(false);
+    let { t } = useTranslation()
     return (
         <nav className={style.endHeader}>
             <div className={style.container}>

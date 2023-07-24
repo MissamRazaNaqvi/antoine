@@ -4,8 +4,10 @@ import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getCartData } from '../../store/action/country';
 import { DeleteProductCart } from '../../functions/addToCart';
-import { t } from 'i18next';
+import { useTranslation } from 'react-i18next';
+
 export default function CartBox() {
+    let { t } = useTranslation()
     let [qty, setQty] = useState(1);
     const { cart } = useSelector(state => state.countries)
     let len = cart.length

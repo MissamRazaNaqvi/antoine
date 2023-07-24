@@ -1,9 +1,10 @@
 
-import { t } from 'i18next'
+import { useTranslation } from 'react-i18next'
 import style from '../../assets/css/footer/footer.module.css'
 import MobileFooter from '../mobileView/mobileFooter'
 
 export default function FooterMiddle({ menu, aboutus, service }) {
+  let { t } = useTranslation()
   return (
     <div className={style.container}>
       <div className={style.mobileFooter}>

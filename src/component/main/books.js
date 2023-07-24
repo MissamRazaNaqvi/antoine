@@ -1,6 +1,6 @@
-import { t } from 'i18next';
 import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux'
 import { useMediaQuery } from 'react-responsive';
 import { Link, useParams } from 'react-router-dom';
@@ -12,6 +12,7 @@ import AddToWishlist from '../../functions/addToWishlist';
 import { getCategories, getProductsListing } from '../../store/action/country';
 import { handleSortChange } from '../../store/slices/productSlice';
 export default function Books() {
+    let { t } = useTranslation()
     const { categories, sorteditem } = useSelector(state => state.productListingSlice)
     const [isActive, setIsActive] = useState(false);
     const [isSort, setIsSort] = useState(false);

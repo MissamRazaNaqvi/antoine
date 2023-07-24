@@ -1,9 +1,10 @@
-import { t } from 'i18next'
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import style from '../../assets/css/footer/footer.module.css'
 
 export default function FooterTop({ footer }) {
+    let { t } = useTranslation()
     return (
         <div className={style.footerTop}>
             <div className={style.container}>

@@ -6,8 +6,9 @@ import style from '../../assets/css/header/cart.module.css'
 import { getCartData } from '../../store/action/country';
 import Danser from '../../assets/images/Danser.png'
 import { Link } from 'react-router-dom';
-import { t } from 'i18next';
+import { useTranslation } from 'react-i18next';
 export default function Cart() {
+    let { t } = useTranslation()
     const { cart } = useSelector(state => state.countries)
     const dispatch = useDispatch()
     const [selectedCountry, setSelectedCountry] = useState('');

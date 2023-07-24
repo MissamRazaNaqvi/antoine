@@ -7,10 +7,11 @@ import { Link } from "react-router-dom";
 import { Rating } from "react-simple-star-rating";
 import { AddToCart } from '../../functions/addToCart'
 import DeleteProduct from "../../functions/removeWishlistItem";
-import { t } from "i18next";
+import { useTranslation } from "react-i18next";
 export default function Whishlist() {
     const { whishlist } = useSelector(state => (state.productListingSlice))
     const dispatch = useDispatch()
+    let { t } = useTranslation()
     useEffect(() => {
         dispatch(getWishlist())
     }, [whishlist]);

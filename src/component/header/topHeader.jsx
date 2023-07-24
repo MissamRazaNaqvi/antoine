@@ -1,8 +1,10 @@
-import i18next, { t } from 'i18next'
+import i18next from 'i18next'
+import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import style from '../../assets/css/header/header.module.css'
 import flag from '../../assets/images/lebonan.png'
 export default function TopHeader({ country, language, onChange }) {
+    let {t}=useTranslation()
     return (
         <div className={style.wrapper}>
             <div className={style.container}>

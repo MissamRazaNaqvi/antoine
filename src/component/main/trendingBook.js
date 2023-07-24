@@ -1,4 +1,4 @@
-import { t } from 'i18next'
+import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import { Rating } from 'react-simple-star-rating'
 import style from '../../assets/css/main/main.module.css'
@@ -6,6 +6,7 @@ import { AddToCart } from '../../functions/addToCart'
 import AddToWishlist from '../../functions/addToWishlist'
 
 export default function TrendingBook({ books, path }) {
+    let {t}=useTranslation()
     return (
         <div>
             <p className={style.bookTitle}>{!path === process.env.REACT_APP_API_BASEURL ? t('You may also like') : t('Trending in Books')} </p>

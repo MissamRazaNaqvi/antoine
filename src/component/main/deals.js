@@ -1,6 +1,7 @@
-import { t } from 'i18next'
+import { useTranslation } from 'react-i18next'
 import style from '../../assets/css/main/main.module.css'
 export default function Deals({ deals }) {
+    let {t}=useTranslation()
     // console.log('deals from Deals table  ', deals);
     return (
         <div className={style.deal}>

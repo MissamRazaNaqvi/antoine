@@ -3,8 +3,9 @@ import { Rating } from 'react-simple-star-rating'
 import { Link } from 'react-router-dom'
 import AddToWishlist from '../../functions/addToWishlist'
 import { AddToCart } from '../../functions/addToCart'
-import { t } from 'i18next'
+import { useTranslation } from 'react-i18next'
 export default function TraindingMusic({ music, path }) {
+    let {t}=useTranslation()
     return (
         <div>
             <p className={style.bookTitle}>{path === process.env.REACT_APP_API_BASEURL ? t('More in this series') : t('Trending in Music and Video')} </p>
